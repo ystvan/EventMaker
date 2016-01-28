@@ -7,17 +7,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:Eventmaker.ViewModel"
     mc:Ignorable="d">
-   <Page.BottomAppBar>
-       <CommandBar>
-           <CommandBar.SecondaryCommands>
-               <AppBarButton>
-                   <!--interactivity, core-->
-               </AppBarButton>
-           </CommandBar.SecondaryCommands>
-       </CommandBar>
-   </Page.BottomAppBar>
-    
-    
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton>
+                    
+                </AppBarButton>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+
     <Page.DataContext>
         <viewModel:EventViewModel/>
     </Page.DataContext>
