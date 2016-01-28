@@ -30,7 +30,7 @@
             <Setter Property="VerticalAlignment" Value="Bottom"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="Margin" Value="0,0,5,5"/>
-            <Setter Property="FontFamily" Value="Calibri Light" />
+            <Setter Property="FontFamily" Value="Calibri Light"/>
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="FontWeight" Value="Medium"/>
         </Style>
