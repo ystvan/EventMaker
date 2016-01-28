@@ -20,7 +20,7 @@
     <Page.Resources>
         <Style TargetType="TextBlock" x:Key="CreateEventTextBlockStyle">
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="Margin" Value="0,0,10,5"/>
             <Setter Property="FontFamily" Value="Calibri Light"/>
             <Setter Property="FontSize" Value="12"/>
