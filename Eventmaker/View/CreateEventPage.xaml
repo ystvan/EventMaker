@@ -31,14 +31,14 @@
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Margin" Value="0,0,5,5"/>
             <Setter Property="FontFamily" Value="Calibri Light"/>
-            <Setter Property="FontSize" Value="12"/>
-            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="FontSize" Value="Auto"/>
+            <Setter Property="BorderBrush" Value="DarkGoldenrod"/>
         </Style>
         <Style TargetType="Button" x:Key="CreateEventButtonStyle">
-            <Setter Property="Background" Value="DarkSeaGreen"/>
+            <Setter Property="Background" Value="Aquamarine"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="Margin" Value="0,10,0,0"/>
-            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontFamily" Value="Calibri Light"/>
         </Style>
         <Style TargetType="StackPanel" x:Key="VerticalStackPanel">
@@ -67,10 +67,10 @@
     </VisualStateManager.VisualStateGroups>
 
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Margin="5,5,5,5" Background="DimGray">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -83,11 +83,11 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="HeaderTextBlock" Grid.ColumnSpan="2"
-                            Text="Add New Event" 
-                            HorizontalAlignment="Center" VerticalAlignment="Center"
-                            Margin="0,0,0,10"
-                            FontWeight="Bold"/>
+                        <TextBlock  x:Name="HeaderTextBlock" Grid.ColumnSpan="2"
+                                    Text="Add New Event" 
+                                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                                    Margin="0,0,0,10"
+                                    FontWeight="Bold"/>
 
                         <TextBlock  Grid.Row="1" 
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
@@ -129,6 +129,8 @@
                                     Text="Date"/>
                         <DatePicker Grid.Row="5"
                                     Grid.Column="1"
+                                    Margin="0,0,0,5"
+                                    BorderBrush="DarkGoldenrod"
                                     Date="{Binding Date}"/>
 
 
@@ -137,13 +139,15 @@
                                     Text="Time"/>
                         <TimePicker Grid.Row="6"
                                     Grid.Column="1"
+                                    BorderBrush="DarkGoldenrod"
+                                    Margin="0,0,0,5"
                                     ClockIdentifier="24HourClock"
                                     Time="{Binding Time}"/>
 
 
 
                         <Button     Grid.Row="7"
-                                    Grid.Column="2"
+                                    Grid.Column="1"
                                     Style="{StaticResource CreateEventButtonStyle}" 
                                     Name="AddNewEvent" 
                                     Content="Add" 
