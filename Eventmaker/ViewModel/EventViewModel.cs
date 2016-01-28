@@ -74,6 +74,7 @@ namespace Eventmaker.ViewModel
 
 
         //In the constructor we set the public or the private Date/date and Time/time?
+        //Do we need the "this" parameter in the EventHandler initialization?
 
         public EventViewModel()
         {
@@ -81,7 +82,8 @@ namespace Eventmaker.ViewModel
             DateTime dt = DateTime.Now;
             Date = new DateTimeOffset(dt);
             Time = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
-            EventHandler = new Handler.EventHandler(this);
+            EventHandler = new Handler.EventHandler();
+            _createEventCommand = new RelayCommand(EventHandler.TriggerCreateEventMethod);
         }
 
         public ICommand CreateEventCommand
