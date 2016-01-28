@@ -8,15 +8,15 @@
     xmlns:viewModel="using:Eventmaker.ViewModel"
     mc:Ignorable="d">
 
-    
+
     <!--Remember to define the DatatContext-->
-    
+
     <Page.DataContext>
-      <viewModel:EventViewModel/>  
+        <viewModel:EventViewModel/>
     </Page.DataContext>
-    
-    <!--By using static style resources we can ensure a steady design flow and save up quite a lot typing--> 
-    
+
+    <!--By using static style resources we can ensure a steady design flow and save up quite a lot typing-->
+
     <Page.Resources>
         <Style TargetType="TextBlock" x:Key="CreateEventTextBlockStyle">
             <Setter Property="VerticalAlignment" Value="Center"/>
@@ -48,12 +48,12 @@
             <Setter Property="Orientation" Value="Horizontal"/>
         </Style>
     </Page.Resources>
-    
+
     <!-- By having an adaptive design, our app is able to be used on different devices with various screen sizes -->
-    
+
     <VisualStateManager.VisualStateGroups>
         <VisualStateGroup x:Name="VisualStateGroup">
-            
+
             <VisualState x:Name="MinimumLayout">
                 <VisualState.StateTriggers>
                     <AdaptiveTrigger MinWindowWidth="0"/>
@@ -62,70 +62,94 @@
                     <Setter Target="HeaderTextBlock.TextSize" Value="20"></Setter>
                 </VisualState.Setters>
             </VisualState>
-            
+
         </VisualStateGroup>
     </VisualStateManager.VisualStateGroups>
-    
-    
+
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-       <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+        <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-       </Grid.ColumnDefinitions>
-       <Grid.RowDefinitions>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-       </Grid.RowDefinitions> 
-       
-        <TextBlock x:Name="HeaderTextBlock" Grid.Row="0" Grid.Column="1" 
-                   Text="Add New Event" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontWeight="Bold"
-                   />
-        
-        <StackPanel Grid.Column="1" Grid.Row="1" Style="{StaticResource VerticalStackPanel}">
-        
-            <StackPanel Style="{StaticResource HorizontalStackPanel}">
-                <TextBlock Style="{StaticResource CreateEventTextBlockStyle}" 
-                           Text="Id"/>
-                <TextBox Style="{StaticResource CreateEventTextBoxStyle}" 
-                         Text="{Binding Id, Mode=TwoWay}"/>
-            </StackPanel>
-            <StackPanel Style="{StaticResource HorizontalStackPanel}">
-                <TextBlock Style="{StaticResource CreateEventTextBlockStyle}" 
-                           Text="Name"/>
-                <TextBox Style="{StaticResource CreateEventTextBoxStyle}" 
-                         Text="{Binding Name, Mode=TwoWay}"/>
-            </StackPanel>
-            <StackPanel Style="{StaticResource HorizontalStackPanel}">
-                <TextBlock Style="{StaticResource CreateEventTextBlockStyle}" 
-                           Text="Description"/>
-                <TextBox Style="{StaticResource CreateEventTextBoxStyle}" 
-                         Text="{Binding Description, Mode=TwoWay}"/>
-            </StackPanel>
-            <StackPanel Style="{StaticResource HorizontalStackPanel}">
-                <TextBlock Style="{StaticResource CreateEventTextBlockStyle}" 
-                           Text="Place"/>
-                <TextBox Style="{StaticResource CreateEventTextBoxStyle}" 
-                         Text="{Binding Place, Mode=TwoWay}"/>
-            </StackPanel>
-            <StackPanel Style="{StaticResource HorizontalStackPanel}">
-                <TextBlock Style="{StaticResource CreateEventTextBlockStyle}" 
-                           Text="Date"/>
-                <DatePicker Date="{Binding Date}"/>
-            </StackPanel>
-            <StackPanel Style="{StaticResource HorizontalStackPanel}">
-                <TextBlock Style="{StaticResource CreateEventTextBlockStyle}" Text="Time"/>
-                <TimePicker ClockIdentifier="24HourClock"
-                            Time="{Binding Time}"/>
-            </StackPanel>
+        </Grid.RowDefinitions>
 
-            <StackPanel Style="{StaticResource HorizontalStackPanel}">
-                <Button Style="{StaticResource CreateEventButtonStyle}" Name="AddNewEvent" Content="Add" Command="{Binding CreateEventCommand}"/>
-            </StackPanel>
-            
-        </StackPanel>
+        <TextBlock x:Name="HeaderTextBlock" Grid.ColumnSpan="3"
+                            Text="Add New Event" 
+                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                            Margin="0,0,0,10"
+                            FontWeight="Bold"/>
+
+                        <TextBlock  Grid.Row="1" 
+                                    Style="{StaticResource CreateEventTextBlockStyle}" 
+                                    Text="Id"/>
+                        <TextBox    Grid.Row="1" 
+                                    Grid.Column="1"
+                                    Style="{StaticResource CreateEventTextBoxStyle}" 
+                                    Text="{Binding Id, Mode=TwoWay}"/>
+
+                        <TextBlock  Grid.Row="2" 
+                                    Style="{StaticResource CreateEventTextBlockStyle}" 
+                                    Text="Name"/>
+                        <TextBox    Grid.Row="2"
+                                    Grid.Column="1"
+                                    Style="{StaticResource CreateEventTextBoxStyle}" 
+                                    Text="{Binding Name, Mode=TwoWay}"/>
+
+
+                        <TextBlock  Grid.Row="3" 
+                                    Style="{StaticResource CreateEventTextBlockStyle}" 
+                                    Text="Description"/>
+                        <TextBox                    Grid.Row="3"
+                                    Grid.Column="1"
+                                    Style="{StaticResource CreateEventTextBoxStyle}" 
+                                    Text="{Binding Description, Mode=TwoWay}"/>
+
+
+                        <TextBlock  Grid.Row="4" 
+                                    Style="{StaticResource CreateEventTextBlockStyle}" 
+                                    Text="Place"/>
+                        <TextBox    Grid.Row="4"
+                                    Grid.Column="1"
+                                    Style="{StaticResource CreateEventTextBoxStyle}" 
+                                    Text="{Binding Place, Mode=TwoWay}"/>
+
+
+                        <TextBlock  Grid.Row="5" 
+                                    Style="{StaticResource CreateEventTextBlockStyle}" 
+                                    Text="Date"/>
+                        <DatePicker Grid.Row="5"
+                                    Grid.Column="1"
+                                    Date="{Binding Date}"/>
+
+
+                        <TextBlock  Grid.Row="6" 
+                                    Style="{StaticResource CreateEventTextBlockStyle}" 
+                                    Text="Time"/>
+                        <TimePicker Grid.Row="6"
+                                    Grid.Column="1"
+                                    ClockIdentifier="24HourClock"
+                                    Time="{Binding Time}"/>
+
+
+
+                        <Button     Grid.Row="7"
+                                    Grid.Column="2"
+                                    Style="{StaticResource CreateEventButtonStyle}" 
+                                    Name="AddNewEvent" 
+                                    Content="Add" 
+                                    Command="{Binding CreateEventCommand}"/>
+
+
+
     </Grid>
 </Page>
