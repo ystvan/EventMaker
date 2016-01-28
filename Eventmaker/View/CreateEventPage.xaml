@@ -6,8 +6,27 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="using:Eventmaker.ViewModel"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d">
-
+    <Page.BottomAppBar>
+        <CommandBar>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="appBarButton" Label="appbarbutton">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:NavigateToPageAction TargetPage="EventPage"/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
+                </AppBarButton>
+            </CommandBar.SecondaryCommands>
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton Icon="Accept" Label="appbarbutton"/>
+            <AppBarButton Icon="Cancel" Label="appbarbutton"/>
+        </CommandBar>
+    </Page.BottomAppBar>
 
     <!--Remember to define the DatatContext-->
 
@@ -83,61 +102,61 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-                        <TextBlock  x:Name="HeaderTextBlock" Grid.ColumnSpan="2"
+        <TextBlock  x:Name="HeaderTextBlock" Grid.ColumnSpan="2"
                                     Text="Add New Event" 
                                     HorizontalAlignment="Center" VerticalAlignment="Center"
                                     Margin="0,0,0,10"
                                     FontWeight="Bold"/>
 
-                        <TextBlock  Grid.Row="1" 
+        <TextBlock  Grid.Row="1" 
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Id"/>
-                        <TextBox    Grid.Row="1" 
+        <TextBox    Grid.Row="1" 
                                     Grid.Column="1"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Id, Mode=TwoWay}"/>
 
-                        <TextBlock  Grid.Row="2" 
+        <TextBlock  Grid.Row="2" 
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Name"/>
-                        <TextBox    Grid.Row="2"
+        <TextBox    Grid.Row="2"
                                     Grid.Column="1"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Name, Mode=TwoWay}"/>
 
 
-                        <TextBlock  Grid.Row="3" 
+        <TextBlock  Grid.Row="3" 
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Description"/>
-                        <TextBox                    Grid.Row="3"
+        <TextBox                    Grid.Row="3"
                                     Grid.Column="1"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Description, Mode=TwoWay}"/>
 
 
-                        <TextBlock  Grid.Row="4" 
+        <TextBlock  Grid.Row="4" 
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Place"/>
-                        <TextBox    Grid.Row="4"
+        <TextBox    Grid.Row="4"
                                     Grid.Column="1"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Place, Mode=TwoWay}"/>
 
 
-                        <TextBlock  Grid.Row="5" 
+        <TextBlock  Grid.Row="5" 
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Date"/>
-                        <DatePicker Grid.Row="5"
+        <DatePicker Grid.Row="5"
                                     Grid.Column="1"
                                     Margin="0,0,0,5"
                                     BorderBrush="DarkGoldenrod"
                                     Date="{Binding Date}"/>
 
 
-                        <TextBlock  Grid.Row="6" 
+        <TextBlock  Grid.Row="6" 
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Time"/>
-                        <TimePicker Grid.Row="6"
+        <TimePicker Grid.Row="6"
                                     Grid.Column="1"
                                     BorderBrush="DarkGoldenrod"
                                     Margin="0,0,0,5"
@@ -146,7 +165,7 @@
 
 
 
-                        <Button     Grid.Row="7"
+        <Button     Grid.Row="7"
                                     Grid.Column="1"
                                     Style="{StaticResource CreateEventButtonStyle}" 
                                     Name="AddNewEvent" 
