@@ -10,6 +10,7 @@ using System.Windows.Input;
 using Eventmaker.Annotations;
 using Eventmaker.Common;
 using Eventmaker.Converter;
+using Eventmaker.Handler;
 using Eventmaker.Model;
 using Eventmaker.View;
 
@@ -19,6 +20,7 @@ namespace Eventmaker.ViewModel
 
     class EventViewModel : INotifyPropertyChanged
     {
+        // private backing fields:
         private int id;
         private string name;
         private string description;
@@ -26,8 +28,13 @@ namespace Eventmaker.ViewModel
         private DateTimeOffset date;
         private TimeSpan time;
         private ICommand _createEventCommand;
-        public EventCatalogSingleton EventCatalog { get; set; }
 
+        // 2 References from another classes:
+        public EventCatalogSingleton EventCatalog { get; set; }
+        public Handler.EventHandler EventHandler { get; set; }
+
+
+        // public properties:
         public int Id
         {
             get { return id; }
@@ -51,15 +58,12 @@ namespace Eventmaker.ViewModel
             get { return place; }
             set { place = value; OnPropertyChanged(); }
         }
-
-
-
+        
         public DateTimeOffset Date
         {
             get { return date; }
             set { date = value; OnPropertyChanged(); }
         }
-
 
         public TimeSpan Time
         {
@@ -69,7 +73,7 @@ namespace Eventmaker.ViewModel
 
 
 
-        
+        //In the constructor we set the public or the private Date/date and Time/time?
 
         public EventViewModel()
         {
@@ -77,6 +81,7 @@ namespace Eventmaker.ViewModel
             DateTime dt = DateTime.Now;
             Date = new DateTimeOffset(dt);
             Time = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
+            EventHandler = new Handler.EventHandler(this);
         }
 
         public ICommand CreateEventCommand
