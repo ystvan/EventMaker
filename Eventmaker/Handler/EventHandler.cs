@@ -17,6 +17,7 @@ namespace Eventmaker.Handler
            EventViewModel = new EventViewModel();
         }
 
+        
         // Not sure about the method below step L) in the SWCLectureDrive
         public void TriggerCreateEventMethod()
         {

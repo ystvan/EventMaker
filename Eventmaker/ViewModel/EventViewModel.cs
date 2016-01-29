@@ -105,7 +105,7 @@ namespace Eventmaker.ViewModel
             set { EventCatalog.Events = value; }
         }
         
-
+        // Not sure this method goes here
         public void CreateEvent()
         {
             Events.Add(new Event(Id, Name, Description, Place, DateTimeConverter.DateTimeOffsetAndDateTime(Date, Time)));

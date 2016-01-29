@@ -13,22 +13,22 @@ namespace Eventmaker.Persistency
     {
         public static async void SaveEventsAsJsonAsync(ObservableCollection<Event> Events)
         {
-            StorageFolder 
+            StorageFolder
         }
 
         public static async Task<List<Event>> LoadEventsFromJsonAsync()
         {
-            
+
         }
 
         public static async void SerializeEventsFileAsync(string eventsString, string fileName)
         {
-            
+
         }
 
         public static async Task<string> DeSerializeEventsFileAsync(String fileName)
         {
-            
+
         }
     }
 }
