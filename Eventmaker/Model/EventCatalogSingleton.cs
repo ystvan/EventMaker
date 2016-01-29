@@ -4,6 +4,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Eventmaker.Converter;
+using Eventmaker.ViewModel;
 
 namespace Eventmaker.Model
 {
@@ -37,6 +39,11 @@ namespace Eventmaker.Model
 
         }
 
-       
+        public void AddEvent(int id, string name, string description, string place, DateTime dateTime)
+        {
+            Events.Add(new Event(id, name, description, place, dateTime));
+        }
+
+
     }
 }

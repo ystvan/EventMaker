@@ -11,17 +11,16 @@ namespace Eventmaker.Handler
     class EventHandler
     {
         public EventViewModel EventViewModel { get; set; }
-
-        public EventHandler()
+        
+        public EventHandler(EventViewModel eventViewModel)
         {
-           EventViewModel = new EventViewModel();
+            EventViewModel = eventViewModel;
         }
-
         
         // Not sure about the method below step L) in the SWCLectureDrive
-        public void TriggerCreateEventMethod()
+        public void CreateEvent()
         {
-            EventViewModel.CreateEvent();
+           //TODO: implement method here
         }
     }
 }

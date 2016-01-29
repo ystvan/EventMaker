@@ -82,8 +82,8 @@ namespace Eventmaker.ViewModel
             DateTime dt = DateTime.Now;
             Date = new DateTimeOffset(dt);
             Time = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
-            EventHandler = new Handler.EventHandler();
-            _createEventCommand = new RelayCommand(EventHandler.TriggerCreateEventMethod);
+            EventHandler = new Handler.EventHandler(this);
+            _createEventCommand = new RelayCommand(EventHandler.CreateEvent);
         }
 
         public ICommand CreateEventCommand
@@ -92,7 +92,7 @@ namespace Eventmaker.ViewModel
             {
                 if (_createEventCommand == null)
                 {
-                    _createEventCommand = new RelayCommand(CreateEvent);
+                    _createEventCommand = new RelayCommand(EventHandler.CreateEvent);
                 }
                 return _createEventCommand;
             }
@@ -105,12 +105,6 @@ namespace Eventmaker.ViewModel
             set { EventCatalog.Events = value; }
         }
         
-        // Not sure this method goes here
-        public void CreateEvent()
-        {
-            Events.Add(new Event(Id, Name, Description, Place, DateTimeConverter.DateTimeOffsetAndDateTime(Date, Time)));
-        }
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
