@@ -14,7 +14,7 @@
                 <AppBarButton x:Name="appBarButton1" Label="Go to Create Event">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
-                            <Core:NavigateToPageAction TargetPage="CreateEventPage"/>
+                            <Core:NavigateToPageAction TargetPage="EventMaker.View.CreateEventPage"/>
                         </Core:EventTriggerBehavior>
                     </Interactivity:Interaction.Behaviors>
                 </AppBarButton>
@@ -51,7 +51,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
+        
+        <!--DO not forget to add a button to create event and bind the command to it-->
 
 
     </Grid>

@@ -15,7 +15,7 @@
                 <AppBarButton x:Name="appBarButton" Label="Go to Events">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
-                            <core:NavigateToPageAction TargetPage="EventPage"/>
+                            <core:NavigateToPageAction TargetPage="EventMaker.View.EventPage"/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </AppBarButton>
