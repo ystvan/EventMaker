@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Eventmaker.ViewModel;
 using Eventmaker.Converter;
-using Eventmaker.Model;
+
 
 namespace Eventmaker.Handler
 {
@@ -17,8 +17,10 @@ namespace Eventmaker.Handler
         private DateTime _dateTime;
 
 
+        //connection both ways between the handler and the viewmodel
         public EventViewModel EventViewModel { get; set; }
         
+        //ctorp+TAB
         public EventHandler(EventViewModel eventViewModel)
         {
             EventViewModel = eventViewModel;

@@ -31,6 +31,8 @@ namespace Eventmaker.ViewModel
 
         // 2 References from another classes:
         public EventCatalogSingleton EventCatalog { get; set; }
+
+        // someone like the controllar pattern, it handles the class
         public Handler.EventHandler EventHandler { get; set; }
 
 
