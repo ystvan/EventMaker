@@ -9,6 +9,9 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d">
+    
+    <!--This AppBar is like the Navigation Pane in Win10, but this one comes from win 8.1 developement-->
+    
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.SecondaryCommands>
@@ -23,8 +26,8 @@
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton Icon="Accept" Label="appbarbutton"/>
-            <AppBarButton Icon="Cancel" Label="appbarbutton"/>
+            <AppBarButton Icon="Accept" Label="OK"/>
+            <AppBarButton Icon="Cancel" Label="Cancel"/>
         </CommandBar>
     </Page.BottomAppBar>
 
@@ -40,25 +43,30 @@
         <Style TargetType="TextBlock" x:Key="CreateEventTextBlockStyle">
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="HorizontalAlignment" Value="Right"/>
-            <Setter Property="Margin" Value="0,0,10,5"/>
-            <Setter Property="FontFamily" Value="Calibri Light"/>
+            <Setter Property="Margin" Value="0,0,2,5"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="IsColorFontEnabled" Value="True"/>
+            <!--<Setter Property="" Value=""/>-->
         </Style>
         <Style TargetType="TextBox" x:Key="CreateEventTextBoxStyle">
             <Setter Property="VerticalAlignment" Value="Bottom"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Margin" Value="0,0,5,5"/>
-            <Setter Property="FontFamily" Value="Calibri Light"/>
-            <Setter Property="FontSize" Value="Auto"/>
-            <Setter Property="BorderBrush" Value="DarkGoldenrod"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="11"/>
+            <Setter Property="BorderBrush" Value="DarkSlateGray"/>
+            <Setter Property="MinWidth" Value="295"/>
         </Style>
         <Style TargetType="Button" x:Key="CreateEventButtonStyle">
-            <Setter Property="Background" Value="Aquamarine"/>
+            <Setter Property="Background" Value="Gray"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="Margin" Value="0,10,0,0"/>
             <Setter Property="FontSize" Value="16"/>
-            <Setter Property="FontFamily" Value="Calibri Light"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontWeight" Value="Light" />
+            <Setter Property="BorderBrush" Value="MediumSeaGreen"/>
         </Style>
         <Style TargetType="StackPanel" x:Key="VerticalStackPanel">
             <Setter Property="Orientation" Value="Vertical"/>
@@ -89,10 +97,10 @@
     <Grid Margin="5,5,5,5" Background="DimGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="80"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -103,16 +111,16 @@
         </Grid.RowDefinitions>
 
         <TextBlock  x:Name="HeaderTextBlock" Grid.ColumnSpan="2"
-                                    Text="Add New Event" 
+                                    Text="Add new Event" 
                                     HorizontalAlignment="Center" VerticalAlignment="Center"
-                                    Margin="0,0,0,10"
-                                    FontWeight="Bold"/>
+                                    Margin="0,0,0,10" FontFamily="Segoe UI"
+                                    FontSize="32"/>
 
         <TextBlock  Grid.Row="1" 
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Id"/>
         <TextBox    Grid.Row="1" 
-                                    Grid.Column="1"
+                                    Grid.Column="1" PlaceholderText="Please only type numbers in"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Id, Mode=TwoWay}"/>
 
@@ -120,16 +128,16 @@
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Name"/>
         <TextBox    Grid.Row="2"
-                                    Grid.Column="1"
+                                    Grid.Column="1" PlaceholderText="The name of the Event should remind you to it"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Name, Mode=TwoWay}"/>
 
 
         <TextBlock  Grid.Row="3" 
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
-                                    Text="Description"/>
+                                    Text="Notes"/>
         <TextBox                    Grid.Row="3"
-                                    Grid.Column="1"
+                                    Grid.Column="1" PlaceholderText="Please describe shortly what is this event about?"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Description, Mode=TwoWay}"/>
 
@@ -138,7 +146,7 @@
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Place"/>
         <TextBox    Grid.Row="4"
-                                    Grid.Column="1"
+                                    Grid.Column="1" PlaceholderText="Please specify City and Address, so as room number"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Place, Mode=TwoWay}"/>
 
@@ -149,7 +157,6 @@
         <DatePicker Grid.Row="5"
                                     Grid.Column="1"
                                     Margin="0,0,0,5"
-                                    BorderBrush="DarkGoldenrod"
                                     Date="{Binding Date}"/>
 
 
@@ -158,7 +165,6 @@
                                     Text="Time"/>
         <TimePicker Grid.Row="6"
                                     Grid.Column="1"
-                                    BorderBrush="DarkGoldenrod"
                                     Margin="0,0,0,5"
                                     ClockIdentifier="24HourClock"
                                     Time="{Binding Time}"/>
