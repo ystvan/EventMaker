@@ -12,7 +12,7 @@
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="appBarButton" Label="appbarbutton">
+                <AppBarButton x:Name="appBarButton" Label="Go to Events">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
                             <core:NavigateToPageAction TargetPage="EventPage"/>
