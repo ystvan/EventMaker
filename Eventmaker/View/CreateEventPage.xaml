@@ -66,7 +66,7 @@
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontFamily" Value="Segoe UI"/>
             <Setter Property="FontWeight" Value="Light" />
-            <Setter Property="BorderBrush" Value="MediumSeaGreen"/>
+            <Setter Property="BorderBrush" Value="#FF28B7D6"/>
         </Style>
         <Style TargetType="StackPanel" x:Key="VerticalStackPanel">
             <Setter Property="Orientation" Value="Vertical"/>
@@ -94,7 +94,7 @@
     </VisualStateManager.VisualStateGroups>
 
 
-    <Grid Margin="5,5,5,5" Background="DimGray">
+    <Grid Margin="5,5,5,5" Background="#FF5B5B5B">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="5*"/>
@@ -120,7 +120,7 @@
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Id"/>
         <TextBox    Grid.Row="1" 
-                                    Grid.Column="1" PlaceholderText="Please only type numbers in"
+                                    Grid.Column="1" PlaceholderText="Give a number according to its pripority"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Id, Mode=TwoWay}"/>
 
@@ -128,7 +128,7 @@
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Name"/>
         <TextBox    Grid.Row="2"
-                                    Grid.Column="1" PlaceholderText="The name of the Event should remind you to it"
+                                    Grid.Column="1" PlaceholderText="What shall it remind you?"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Name, Mode=TwoWay}"/>
 
@@ -137,7 +137,7 @@
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Notes"/>
         <TextBox                    Grid.Row="3"
-                                    Grid.Column="1" PlaceholderText="Please describe shortly what is this event about?"
+                                    Grid.Column="1" PlaceholderText="What is this event about?"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Description, Mode=TwoWay}"/>
 
@@ -146,7 +146,7 @@
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Place"/>
         <TextBox    Grid.Row="4"
-                                    Grid.Column="1" PlaceholderText="Please specify City and Address, so as room number"
+                                    Grid.Column="1" PlaceholderText="Where is this Event taking place?"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Place, Mode=TwoWay}"/>
 
