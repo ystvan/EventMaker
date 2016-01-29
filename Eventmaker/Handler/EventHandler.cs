@@ -5,11 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Eventmaker.ViewModel;
+using Eventmaker.Converter;
+using Eventmaker.Model;
 
 namespace Eventmaker.Handler
 {
     class EventHandler
     {
+        private DateTimeOffset _offset;
+        private TimeSpan _timeSpan;
+        private DateTime _dateTime;
+
+
         public EventViewModel EventViewModel { get; set; }
         
         public EventHandler(EventViewModel eventViewModel)
@@ -17,10 +24,15 @@ namespace Eventmaker.Handler
             EventViewModel = eventViewModel;
         }
         
-        // Not sure about the method below step L) in the SWCLectureDrive
         public void CreateEvent()
         {
-           //TODO: implement method here
+            _offset = EventViewModel.Date;
+            _timeSpan = EventViewModel.Time;
+
+            _dateTime = DateTimeConverter.DateTimeOffsetAndDateTime(_offset, _timeSpan);
+
+            EventViewModel.EventCatalog.AddEvent(EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place, _dateTime);
+            
         }
     }
 }

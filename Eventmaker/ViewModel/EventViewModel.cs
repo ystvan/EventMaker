@@ -71,11 +71,6 @@ namespace Eventmaker.ViewModel
             set { time = value; OnPropertyChanged(); }
         }
 
-
-
-        //In the constructor we set the public or the private Date/date and Time/time?
-        //Do we need the "this" parameter in the EventHandler initialization?
-
         public EventViewModel()
         {
             EventCatalog = EventCatalogSingleton.GetInstance();

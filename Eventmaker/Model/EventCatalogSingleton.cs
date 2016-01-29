@@ -39,9 +39,9 @@ namespace Eventmaker.Model
 
         }
 
-        public void AddEvent(int id, string name, string description, string place, DateTime dateTime)
+        public void AddEvent(int _id, string _name, string _description, string _place, DateTime _dateTime)
         {
-            Events.Add(new Event(id, name, description, place, dateTime));
+            Events.Add(new Event(_id, _name, _description, _place, _dateTime));
         }
 
 
