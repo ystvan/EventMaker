@@ -15,7 +15,7 @@
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="appBarButton" Label="Go to Events">
+                <AppBarButton x:Name="AppBarButton" Label="Go to Events">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
                             <core:NavigateToPageAction TargetPage="EventMaker.View.EventPage"/>
@@ -93,7 +93,8 @@
         </VisualStateGroup>
     </VisualStateManager.VisualStateGroups>
 
-
+    <!--defining the page layout, either working with grids or stackpanels, both will give us a neat overall outline-->
+    
     <Grid Margin="5,5,5,5" Background="#FF5B5B5B">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -110,6 +111,8 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <!--putting the textboxes and textblock next to each other (vertical-horizontal in logical way), specifying which grid they are placed-->
+        
         <TextBlock  x:Name="HeaderTextBlock" Grid.ColumnSpan="2"
                                     Text="Add new Event" 
                                     HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -169,7 +172,7 @@
                                     ClockIdentifier="24HourClock"
                                     Time="{Binding Time}"/>
 
-
+        <!--the add button with a command, not a code behind click event-->
 
         <Button     Grid.Row="7"
                                     Grid.Column="1"

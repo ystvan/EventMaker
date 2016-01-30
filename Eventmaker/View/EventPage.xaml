@@ -8,10 +8,13 @@
     xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="Eventmaker.View.EventPage"
     mc:Ignorable="d">
+
+    <!--This AppBar is like the Navigation Pane in Win10, but this one comes from win 8.1 developement-->
+
     <Page.BottomAppBar>
         <CommandBar>
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="appBarButton1" Label="Go to Create Event">
+                <AppBarButton x:Name="AppBarButton1" Label="Go to Create Event">
                     <Interactivity:Interaction.Behaviors>
                         <Core:EventTriggerBehavior EventName="Click">
                             <Core:NavigateToPageAction TargetPage="EventMaker.View.CreateEventPage"/>
@@ -26,13 +29,17 @@
             <AppBarButton Icon="Cancel" Label="appbarbutton"/>
         </CommandBar>
     </Page.BottomAppBar>
-    
+
+    <!--Remember to define the DatatContext-->
+
     <Page.DataContext>
         <viewModel:EventViewModel/>
     </Page.DataContext>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+        <!--we are using a listview which binding the text properties two way-->  
+        
         <ListView x:Name="listView" 
 			HorizontalAlignment="Left" 
 			Height="620" 
@@ -52,7 +59,7 @@
             </ListView.ItemTemplate>
         </ListView>
         
-        <!--DO not forget to add a button to create event and bind the command to it-->
+        <!--DO not forget to add a button to create NEW event and bind the command to it-->
 
 
     </Grid>

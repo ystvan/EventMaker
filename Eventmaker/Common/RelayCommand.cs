@@ -7,6 +7,8 @@ using System.Windows.Input;
 
 namespace Eventmaker.Common
 {
+
+    //the whole code below is reusable in any project!
     class RelayCommand : ICommand
     {
 
