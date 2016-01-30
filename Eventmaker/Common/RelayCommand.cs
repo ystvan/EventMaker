@@ -11,14 +11,13 @@ namespace Eventmaker.Common
     //the whole code below is reusable in any project!
     class RelayCommand : ICommand
     {
-
         private readonly Action _execute;
         private readonly Func<bool> _canExecute;
-        
-       
-       
+
+        public event EventHandler CanExecuteChanged;
+
         public RelayCommand(Action execute)
-            :this(execute,null)
+            :this(execute, null)
         {
             
         }
@@ -33,16 +32,13 @@ namespace Eventmaker.Common
 
         public bool CanExecute(object parameter)
         {
-            return _canExecute == null ? true : _canExecute();
+            return _canExecute?.Invoke() ?? true;
         }
 
         public void Execute(object parameter)
         {
             _execute();
         }
-
-        public event EventHandler CanExecuteChanged;
-        
 
         public void RaiseCanExecuteChanged()
         {
