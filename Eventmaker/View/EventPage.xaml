@@ -30,6 +30,9 @@
         </CommandBar>
     </Page.BottomAppBar>
 
+    
+    
+    
     <!--Remember to define the DatatContext-->
 
     <Page.DataContext>
@@ -39,13 +42,14 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <!--we are using a listview which binding the text properties two way-->  
-        
-        <ListView x:Name="listView" 
+        <StackPanel Orientation="Vertical">
+        <ListView x:Name="EventPagelistView" 
 			HorizontalAlignment="Left" 
-			Height="620" 
+			Height="449" 
 			Margin="10,10,0,0" 
 			VerticalAlignment="Top" 
 			Width="340" 
+            MaxHeight="600"      
 			ItemsSource="{Binding EventCatalog.events, Mode=TwoWay}" FontFamily="Magneto">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -60,7 +64,16 @@
         </ListView>
         
         <!--DO not forget to add a button to create NEW event and bind the command to it-->
-
-
+            <Button x:Name="CreateEventButton" Command="{Binding CreateEventCommand}" Margin="10,10,5,5">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="NewEventIcon"
+                               Text="&#xE710;"
+                               FontFamily="Segoe MDL2 Assets"
+                               Margin="0,4,5,0"/>
+                    <TextBlock Text="Add New"
+                               FontFamily="Segoe UI"/>    
+                </StackPanel>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>
