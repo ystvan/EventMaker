@@ -97,9 +97,9 @@ namespace Eventmaker.ViewModel
 
         public ObservableCollection<Event> Events
         {
-            get { return EventCatalog.Events; }
+            get { return EventCatalog.events; }
 
-            set { EventCatalog.Events = value; }
+            set { EventCatalog.events = value; }
         }
         
         public event PropertyChangedEventHandler PropertyChanged;

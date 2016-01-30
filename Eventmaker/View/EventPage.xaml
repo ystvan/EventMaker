@@ -46,7 +46,7 @@
 			Margin="10,10,0,0" 
 			VerticalAlignment="Top" 
 			Width="340" 
-			ItemsSource="{Binding EventCatalog.Events, Mode=TwoWay}" FontFamily="Magneto">
+			ItemsSource="{Binding EventCatalog.events, Mode=TwoWay}" FontFamily="Magneto">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
