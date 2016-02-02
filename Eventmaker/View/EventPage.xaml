@@ -8,14 +8,7 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity" xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="Eventmaker.View.EventPage"
     mc:Ignorable="d">
-    <Page.Resources>
-        <DataTemplate>
-
-        </DataTemplate>
-    </Page.Resources>
-
-
-
+    
     <!--This AppBar is like the Navigation Pane in Win10, but this one comes from win 8.1 developement-->
 
     <Page.BottomAppBar>

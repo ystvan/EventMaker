@@ -9,7 +9,6 @@ using Eventmaker.Model;
 using Newtonsoft.Json;
 using Windows.UI.Popups;
 using System.Xml.Serialization;
-using Windows.Storage;
 using System.IO;
 using Newtonsoft.Json.Linq;
 
