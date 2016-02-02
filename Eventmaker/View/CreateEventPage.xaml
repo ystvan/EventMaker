@@ -18,7 +18,7 @@
                 <AppBarButton x:Name="AppBarButton" Label="Go to Events">
                     <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
-                            <core:NavigateToPageAction TargetPage="EventMaker.View.EventPage"/>
+                            <core:NavigateToPageAction TargetPage="Eventmaker.View.EventPage"/>
                         </core:EventTriggerBehavior>
                     </interactivity:Interaction.Behaviors>
                 </AppBarButton>
@@ -75,6 +75,7 @@
             <Setter Property="Orientation" Value="Horizontal"/>
         </Style>
     </Page.Resources>
+    
 
     <!-- By having an adaptive design, our app is able to be used on different devices with various screen sizes -->
 
