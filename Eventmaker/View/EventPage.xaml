@@ -41,8 +41,10 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
         <!--we are using a listview which binding the text properties two way-->  
-        <StackPanel Orientation="Vertical">
-        <ListView x:Name="EventPagelistView" 
+        
+    <StackPanel Orientation="Vertical">
+        
+            <ListView x:Name="EventPagelistView" 
 			HorizontalAlignment="Left" 
 			Height="449" 
 			Margin="10,10,0,0" 
@@ -63,7 +65,8 @@
             </ListView.ItemTemplate>
         </ListView>
         
-        <!--DO not forget to add a button to create NEW event and bind the command to it-->
+        <!--DO not forget to add a button to create NEW event and bind the command to it to navigate (Command instead of clic_event)-->
+        
             <Button x:Name="CreateEventButton" Margin="10,10,5,5">
                  <interactivity:Interaction.Behaviors>
                         <core:EventTriggerBehavior EventName="Click">
@@ -79,6 +82,7 @@
                                FontFamily="Segoe UI"/>    
                 </StackPanel>
             </Button>
-        </StackPanel>
+            
+    </StackPanel>
     </Grid>
 </Page>

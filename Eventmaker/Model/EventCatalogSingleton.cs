@@ -11,6 +11,7 @@ namespace Eventmaker.Model
 {
     public class EventCatalogSingleton
     {
+        //Singleton 2nd kind of initialization
 
         private static EventCatalogSingleton _instance = null;
 
@@ -23,13 +24,19 @@ namespace Eventmaker.Model
             return _instance;
         }
 
+        //ObservableCollection to adaptive list(remove, add, load)
+
         public ObservableCollection<Event> events { get; set; }
+
+        //Singleton constructor is private
 
         private EventCatalogSingleton()
         {
             events = new ObservableCollection<Event>();
             LoadSomeEvents();
         }
+
+        //Just some random events to be shown at the bigining
 
         public void LoadSomeEvents()
         {
@@ -39,11 +46,21 @@ namespace Eventmaker.Model
 
         }
 
+        //Below seen some methods to handle the list
+
         public void AddEvent(int _id, string _name, string _description, string _place, DateTime _dateTime)
         {
             events.Add(new Event(_id, _name, _description, _place, _dateTime));
         }
 
+        public void RemoveEvent()
+        {
+           //TODO: implement this 
+        }
 
+        public void DeleteEvent()
+        {
+            //TODO: implement this 
+        }
     }
 }

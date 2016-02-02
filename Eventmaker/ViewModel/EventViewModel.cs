@@ -73,6 +73,8 @@ namespace Eventmaker.ViewModel
             set { time = value; OnPropertyChanged(); }
         }
 
+        //Constructor:
+
         public EventViewModel()
         {
             EventCatalog = EventCatalogSingleton.GetInstance();
@@ -82,6 +84,8 @@ namespace Eventmaker.ViewModel
             EventHandler = new Handler.EventHandler(this);
             _createEventCommand = new RelayCommand(EventHandler.CreateEvent);
         }
+
+        //RelayCommand, ICommand
 
         public ICommand CreateEventCommand
         {
@@ -95,6 +99,7 @@ namespace Eventmaker.ViewModel
             }
         }
 
+        //ObservableCollection getter and setter
         public ObservableCollection<Event> Events
         {
             get { return EventCatalog.events; }
@@ -102,6 +107,7 @@ namespace Eventmaker.ViewModel
             set { EventCatalog.events = value; }
         }
         
+        // this is where the magic happens, haven't studied about it yet, it's an "EVENT"
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
