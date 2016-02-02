@@ -106,7 +106,19 @@ namespace Eventmaker.ViewModel
 
             set { EventCatalog.events = value; }
         }
-        
+
+        //TODO: what is this?
+        public static Event SelectedEvent { get; set; }
+
+        private ICommand _selectedEventCommand;
+
+        public ICommand SelectedEventCommand
+        {
+            get { return _selectedEventCommand; }
+            set { _selectedEventCommand = value; }
+        }
+
+
         // this is where the magic happens, haven't studied about it yet, it's an "EVENT"
         public event PropertyChangedEventHandler PropertyChanged;
 

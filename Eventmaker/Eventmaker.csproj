@@ -98,6 +98,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\RelayArgCommand.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Converter\DateTimeConverter.cs" />
     <Compile Include="Handler\EventHandler.cs" />
