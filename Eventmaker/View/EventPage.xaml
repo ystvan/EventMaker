@@ -64,7 +64,12 @@
         </ListView>
         
         <!--DO not forget to add a button to create NEW event and bind the command to it-->
-            <Button x:Name="CreateEventButton" Command="{Binding CreateEventCommand}" Margin="10,10,5,5">
+            <Button x:Name="CreateEventButton" Margin="10,10,5,5">
+                 <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="Click">
+                            <core:NavigateToPageAction TargetPage="Eventmaker.View.CreateEventPage"/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Name="NewEventIcon"
                                Text="&#xE710;"
