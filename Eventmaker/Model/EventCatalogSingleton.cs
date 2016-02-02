@@ -55,12 +55,9 @@ namespace Eventmaker.Model
 
         public void RemoveEvent()
         {
-           //TODO: implement this 
+           //TODO: implement this r)
         }
 
-        public void DeleteEvent()
-        {
-            //TODO: implement this 
-        }
+       
     }
 }

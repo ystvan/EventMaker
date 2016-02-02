@@ -36,5 +36,15 @@ namespace Eventmaker.Handler
             EventViewModel.EventCatalog.AddEvent(EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place, _dateTime);
             
         }
+
+        public void DeleteEvent()
+        {
+            //TODO: implement this calling the Remove(); from singleton s)
+        }
+
+        public void SetSelectedEvent()
+        {
+            //TODO: u) arguments parameters
+        }
     }
 }

@@ -83,6 +83,7 @@ namespace Eventmaker.ViewModel
             Time = new TimeSpan(dt.Hour, dt.Minute, dt.Second);
             EventHandler = new Handler.EventHandler(this);
             _createEventCommand = new RelayCommand(EventHandler.CreateEvent);
+            _deleteEventCommand = new RelayCommand(EventHandler.DeleteEvent);
         }
 
         //RelayCommand, ICommand
@@ -107,7 +108,7 @@ namespace Eventmaker.ViewModel
             set { EventCatalog.events = value; }
         }
 
-        //TODO: what is this?
+        //TODO: what is this? t)+v)+u) in the guide on Gdrive
         public static Event SelectedEvent { get; set; }
 
         private ICommand _selectedEventCommand;
@@ -116,6 +117,17 @@ namespace Eventmaker.ViewModel
         {
             get { return _selectedEventCommand; }
             set { _selectedEventCommand = value; }
+        }
+
+
+        // part v) in guide:
+         
+        private ICommand _deleteEventCommand;
+
+        public ICommand DeleteEventCommand
+        {
+            get { return _deleteEventCommand; }
+            set { _deleteEventCommand = value; }
         }
 
 

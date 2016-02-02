@@ -8,6 +8,13 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity" xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     x:Class="Eventmaker.View.EventPage"
     mc:Ignorable="d">
+    <Page.Resources>
+        <DataTemplate>
+
+        </DataTemplate>
+    </Page.Resources>
+
+
 
     <!--This AppBar is like the Navigation Pane in Win10, but this one comes from win 8.1 developement-->
 
@@ -29,9 +36,9 @@
             <AppBarButton Icon="Cancel" Label="Cancel"/>
         </CommandBar>
     </Page.BottomAppBar>
-    
-    
-    
+
+
+
     <!--Remember to define the DatatContext-->
 
     <Page.DataContext>
@@ -40,49 +47,67 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <!--we are using a listview which binding the text properties two way-->  
-        
-    <StackPanel Orientation="Vertical">
-        
+        <!--we are using a listview which binding the text properties two way-->
+
+        <StackPanel Orientation="Vertical">
+
             <ListView x:Name="EventPagelistView" 
 			HorizontalAlignment="Left" 
-			Height="449" 
+			Height="272" 
 			Margin="10,10,0,0" 
 			VerticalAlignment="Top" 
 			Width="340" 
             MaxHeight="600"  
             ShowsScrollingPlaceholders="False"      
 			ItemsSource="{Binding EventCatalog.events, Mode=TwoWay}" FontFamily="Magneto">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Name, Mode=TwoWay}" FontFamily="Calibri Light"/>
-                        <TextBlock Text="{Binding Description, Mode=TwoWay}"/>
-                        <TextBlock Text="{Binding Place, Mode=TwoWay}"/>
-                        <TextBlock Text="{Binding DateTime, Mode=TwoWay}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        
-        <!--DO not forget to add a button to create NEW event and bind the command to it to navigate (Command instead of clic_event)-->
-        
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name, Mode=TwoWay}" FontFamily="Calibri Light"/>
+                            <TextBlock Text="{Binding Description, Mode=TwoWay}"/>
+                            <TextBlock Text="{Binding Place, Mode=TwoWay}"/>
+                            <TextBlock Text="{Binding DateTime, Mode=TwoWay}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+            <!--Shall I make a brand new ListView or what now?
+            
+            <ListView x:Name="listView" HorizontalAlignment="Left" 
+                      Margin="10,10,0,0" VerticalAlignment="Top" 
+                      ItemsSource="{Binding EventCatalogSingleton.Events}" 
+                      ItemTemplate="{StaticResource EventDataTemplate}">
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="SelectionChanged">
+                        <core:InvokeCommandAction Command="{Binding SelectEventCommand}" CommandParameter="{Binding SelectedItem, ElementName=listView}"/>
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
+                <ListView.RenderTransform>
+                    <CompositeTransform SkewY="0.322" TranslateY="0.994"/>
+                </ListView.RenderTransform>
+            </ListView>-->
+            
+            
+
+            <!--DO not forget to add a button to create NEW event and bind the command to it to navigate (Command instead of clic_event)-->
+
             <Button x:Name="CreateEventButton" Margin="10,10,5,5">
-                 <interactivity:Interaction.Behaviors>
-                        <core:EventTriggerBehavior EventName="Click">
-                            <core:NavigateToPageAction TargetPage="Eventmaker.View.CreateEventPage"/>
-                        </core:EventTriggerBehavior>
-                    </interactivity:Interaction.Behaviors>
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Click">
+                        <core:NavigateToPageAction TargetPage="Eventmaker.View.CreateEventPage"/>
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Name="NewEventIcon"
                                Text="&#xE710;"
                                FontFamily="Segoe MDL2 Assets"
                                Margin="0,4,5,0"/>
                     <TextBlock Text="Add New"
-                               FontFamily="Segoe UI"/>    
+                               FontFamily="Segoe UI"/>
                 </StackPanel>
             </Button>
-            
-    </StackPanel>
+
+        </StackPanel>
     </Grid>
 </Page>
