@@ -174,11 +174,6 @@
                                     Time="{Binding Time}"/>
 
         <!--the add button with a command, not a code behind click event-->
-
-        <!--TODO: Ask Morten!!:
-            how to implement 2 commands in 1 button? 
-            Add Event() + Navigate back to EventPage and show the freshly added one
-        -->
         
         <Button x:Name="CreateEventButton" 
                 Command="{Binding CreateEventCommand}" 
