@@ -46,7 +46,7 @@ namespace Eventmaker.Handler
 
         public void SetSelectedEvent(Event selectedEvent)
         {
-            EventViewModel.EventCatalog.events.Select(EventViewModel.);
+            EventViewModel.SelectedEvent = selectedEvent;
             //TODO: u) arguments parameters
         }
     }
