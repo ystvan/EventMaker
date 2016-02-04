@@ -64,6 +64,7 @@ namespace Eventmaker.Model
         public void AddEvent(int _id, string _name, string _description, string _place, DateTime _dateTime)
         {
             events.Add(new Event(_id, _name, _description, _place, _dateTime));
+            PersistencyService.SaveEventsAsJsonAsync(events);
         }
 
         public void RemoveEvent()
