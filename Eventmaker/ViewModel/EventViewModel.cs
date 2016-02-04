@@ -120,7 +120,8 @@ namespace Eventmaker.ViewModel
         }
 
 
-        // part v) in guide:
+        // TODO part v) in guide:
+        // implement this below
          
         private ICommand _deleteEventCommand;
 
