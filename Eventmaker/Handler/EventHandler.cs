@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Eventmaker.ViewModel;
 using Eventmaker.Converter;
+using Eventmaker.Model;
 
 
 namespace Eventmaker.Handler
@@ -40,11 +41,12 @@ namespace Eventmaker.Handler
         public void DeleteEvent()
         {
             EventViewModel.EventCatalog.events.Remove(EventViewModel.SelectedEvent);
-            //TODO: implement this calling the Remove(); from singleton s)
+            
         }
 
-        public void SetSelectedEvent()
+        public void SetSelectedEvent(Event selectedEvent)
         {
+            EventViewModel.EventCatalog.events.Select(EventViewModel.);
             //TODO: u) arguments parameters
         }
     }

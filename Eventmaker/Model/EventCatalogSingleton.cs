@@ -71,8 +71,6 @@ namespace Eventmaker.Model
         {
             events.Remove(thisEvent);
             PersistencyService.SaveEventsAsJsonAsync(events);
-
-            //TODO: implement this r)
         }
 
        
