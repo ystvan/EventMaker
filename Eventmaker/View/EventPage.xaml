@@ -42,7 +42,7 @@
 
         <!--we are using a listview which binding the text properties two way-->
 
-        <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical" Background="#FF5B5B5B">
 
             <ListView x:Name="EventPagelistView" 
 			HorizontalAlignment="Left" 

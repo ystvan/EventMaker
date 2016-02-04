@@ -41,9 +41,9 @@ namespace Eventmaker.Model
 
         public async void LoadEventAsync()
         {
-            var events = await PersistencyService.LoadEventsFromJsonAsync();
-            if (events != null)
-                foreach (var @event in events)
+            var JsonEvents = await PersistencyService.LoadEventsFromJsonAsync();
+            if (JsonEvents != null)
+                foreach (var @event in JsonEvents)
                 {
                     events.Add(@event);
                 }
