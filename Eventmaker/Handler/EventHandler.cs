@@ -39,6 +39,7 @@ namespace Eventmaker.Handler
 
         public void DeleteEvent()
         {
+            EventViewModel.EventCatalog.events.Remove(EventViewModel.SelectedEvent);
             //TODO: implement this calling the Remove(); from singleton s)
         }
 

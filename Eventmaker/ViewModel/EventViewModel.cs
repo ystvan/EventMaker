@@ -34,7 +34,14 @@ namespace Eventmaker.ViewModel
 
         // someone like the controllar pattern, it handles the class
         public Handler.EventHandler EventHandler { get; set; }
+        
+        //ObservableCollection getter and setter
+        public ObservableCollection<Event> Events
+        {
+            get { return EventCatalog.events; }
 
+            set { EventCatalog.events = value; }
+        }
 
         // public properties:
         public int Id
@@ -100,15 +107,10 @@ namespace Eventmaker.ViewModel
             }
         }
 
-        //ObservableCollection getter and setter
-        public ObservableCollection<Event> Events
-        {
-            get { return EventCatalog.events; }
-
-            set { EventCatalog.events = value; }
-        }
-
+        // TODO part v) in guide:
+        // implement this below
         //TODO: what is this? t)+v)+u) in the guide on Gdrive
+
         public static Event SelectedEvent { get; set; }
 
         private ICommand _selectedEventCommand;
@@ -118,11 +120,7 @@ namespace Eventmaker.ViewModel
             get { return _selectedEventCommand; }
             set { _selectedEventCommand = value; }
         }
-
-
-        // TODO part v) in guide:
-        // implement this below
-         
+        
         private ICommand _deleteEventCommand;
 
         public ICommand DeleteEventCommand
