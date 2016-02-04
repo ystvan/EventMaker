@@ -81,9 +81,10 @@
                 </ListView.RenderTransform>
             </ListView>-->
             
-            
+            <!--TODO Selecet+Remove button-->
 
-            <!--DO not forget to add a button to create NEW event and bind the command to it to navigate (Command instead of clic_event)-->
+            <!--DO not forget to add a button to create NEW event and bind the command 
+                to it to navigate (Command instead of clic_event)-->
 
             <Button x:Name="CreateEventButton" Margin="10,10,5,5">
                 <interactivity:Interaction.Behaviors>
