@@ -36,11 +36,11 @@ namespace Eventmaker.Model
             LoadSomeEvents();
         }
 
-        //Just some random events to be shown at the bigining
+        //Just some random events to be shown at the begining
 
         public void LoadSomeEvents()
         {
-            //TODO change the method part q) in the guideline public >>>async void LoadEventAsync(){}
+            //TODO change the method part q) in the guideline public >>>async void LoadEventAsync(){} await LoadJson
 
             events.Add(new Event(1, "Team Bulding", "Kick-start 2nd semester by bowling", "Roskilde Bowling Centre", new DateTime(2015,1,29,8,0,0,0)));
             events.Add(new Event(2, "Group Formation", "Finding New Members", "Classroom E304", new DateTime(2015,1,29,9,0,0,0)));
