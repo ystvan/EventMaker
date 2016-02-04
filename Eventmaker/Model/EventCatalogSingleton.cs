@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Eventmaker.Converter;
+using Eventmaker.Persistency;
 using Eventmaker.ViewModel;
 
 namespace Eventmaker.Model
@@ -33,20 +34,30 @@ namespace Eventmaker.Model
         private EventCatalogSingleton()
         {
             events = new ObservableCollection<Event>();
-            LoadSomeEvents();
+            LoadEventAsync();
         }
 
         //Just some random events to be shown at the begining
 
-        public void LoadSomeEvents()
+        public async void LoadEventAsync()
         {
-            //TODO change the method part q) in the guideline public >>>async void LoadEventAsync(){} await LoadJson
-
-            events.Add(new Event(1, "Team Bulding", "Kick-start 2nd semester by bowling", "Roskilde Bowling Centre", new DateTime(2015,1,29,8,0,0,0)));
-            events.Add(new Event(2, "Group Formation", "Finding New Members", "Classroom E304", new DateTime(2015,1,29,9,0,0,0)));
-            events.Add(new Event(3, "Project Proposals", "Company Visit", "ZIBAT Headquarters", new DateTime(2015,2,1,12,0,0,0)));
-
+            var events = await PersistencyService.LoadEventsFromJsonAsync();
+            if (events != null)
+                foreach (var @event in events)
+                {
+                    events.Add(@event);
+                }
         }
+
+        //public void LoadSomeEvents()
+        //{
+        //    //TODO change the method part q) in the guideline public >>>async void LoadEventAsync(){} await LoadJson
+
+        //    events.Add(new Event(1, "Team Bulding", "Kick-start 2nd semester by bowling", "Roskilde Bowling Centre", new DateTime(2015,1,29,8,0,0,0)));
+        //    events.Add(new Event(2, "Group Formation", "Finding New Members", "Classroom E304", new DateTime(2015,1,29,9,0,0,0)));
+        //    events.Add(new Event(3, "Project Proposals", "Company Visit", "ZIBAT Headquarters", new DateTime(2015,2,1,12,0,0,0)));
+
+        //}
 
         //Below seen some methods to handle the list
 
