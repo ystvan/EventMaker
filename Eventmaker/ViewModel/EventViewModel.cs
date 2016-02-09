@@ -170,7 +170,10 @@ namespace Eventmaker.ViewModel
             }
         }
 
-        // induction to flame up the fire TODO: I might need a FINALLY block???
+        // induction to flame up the fire TODO: I might need a FINALLY block??? 
+        /*
+            Or do I Need case1-2-3-4 and TODO: break??
+        */
 
         public void CatchThisIfYouCan(int Id, string Name, string Description, string Place)
         {
