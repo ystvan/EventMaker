@@ -7,6 +7,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.ApplicationModel.Activation;
+using Windows.UI.Popups;
 using Eventmaker.Annotations;
 using Eventmaker.Common;
 using Eventmaker.Converter;
@@ -47,25 +49,99 @@ namespace Eventmaker.ViewModel
         public int Id
         {
             get { return id; }
-            set { id = value; OnPropertyChanged(); }
+            set
+            {
+                try
+                {
+                    if (value < 0)
+                    {
+                        throw new IndexOutOfRangeException(nameof(Id));
+                    }
+                }
+                catch (IndexOutOfRangeException idIndexOutOfRangeExceptionn)
+                {
+                    MessageDialogHelper.Show(
+                     "The Event Id cannot be a negative number",
+                     "Invalid Event ID!");
+                }
+                
+                
+                id = value;
+                OnPropertyChanged();
+            }
         }
 
         public string Name
         {
             get { return name; }
-            set { name = value; OnPropertyChanged(); }
+            set
+            {
+                try
+                {
+                    if (String.IsNullOrEmpty(value))
+                    {
+                        throw new ArgumentNullException(nameof(Name));
+                    }
+                }
+                catch (ArgumentNullException nameNullException)
+                {
+
+                    MessageDialogHelper.Show(
+                     "The Event Name cannot be empty",
+                     "Invalid Event Name!");
+                }
+                
+                name = value;
+                OnPropertyChanged();
+            }
         }
 
         public string Description
         {
             get { return description; }
-            set { description = value; OnPropertyChanged(); }
+            set
+            {
+                try
+                {
+                    if (String.IsNullOrEmpty(value))
+                    {
+                        throw new ArgumentNullException(nameof(Description));
+                    }
+                }
+                catch (ArgumentNullException descriptionNullException)
+                {
+
+                    MessageDialogHelper.Show(
+                     "The Event Description cannot be empty",
+                     "Invalid Event Description!");
+                }
+                description = value;
+                OnPropertyChanged();
+            }
         }
 
         public string Place
         {
             get { return place; }
-            set { place = value; OnPropertyChanged(); }
+            set
+            {
+                try
+                {
+                    if (String.IsNullOrEmpty(value))
+                    {
+                        throw new ArgumentNullException(nameof(Place));
+                    }
+                }
+                catch (ArgumentNullException placeNullException)
+                {
+
+                    MessageDialogHelper.Show(
+                     "The Event Place cannot be empty",
+                     "Invalid Event Place!");
+                }
+                place = value;
+                OnPropertyChanged();
+            }
         }
         
         public DateTimeOffset Date
@@ -138,6 +214,15 @@ namespace Eventmaker.ViewModel
         {
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private class MessageDialogHelper
+        {
+            public static async void Show(string content, string header)
+            {
+                MessageDialog messageDialog = new MessageDialog(content, header);
+                await messageDialog.ShowAsync();
+            }
         }
     }
 }
