@@ -170,7 +170,7 @@ namespace Eventmaker.ViewModel
             }
         }
 
-        // induction to flame up the fire
+        // induction to flame up the fire TODO: I might need a FINALLY block???
 
         public void CatchThisIfYouCan(int Id, string Name, string Description, string Place)
         {
