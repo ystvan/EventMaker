@@ -28,6 +28,7 @@ namespace Eventmaker.Model
             Place = place;
             DateTime = dateTime;
 
+
         }
 
         public override string ToString()

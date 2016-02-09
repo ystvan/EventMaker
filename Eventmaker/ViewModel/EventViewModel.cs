@@ -33,6 +33,8 @@ namespace Eventmaker.ViewModel
 
         // 2 References from another classes:
         public EventCatalogSingleton EventCatalog { get; set; }
+        public EventCatalogSingleton RevertBack { get; set; }
+
 
         // someone like the controllar pattern, it handles the class
         public Handler.EventHandler EventHandler { get; set; }
@@ -51,21 +53,6 @@ namespace Eventmaker.ViewModel
             get { return id; }
             set
             {
-                try
-                {
-                    if (value < 0)
-                    {
-                        throw new IndexOutOfRangeException(nameof(Id));
-                    }
-                }
-                catch (IndexOutOfRangeException idIndexOutOfRangeExceptionn)
-                {
-                    MessageDialogHelper.Show(
-                     "The Event Id cannot be a negative number",
-                     "Invalid Event ID!");
-                }
-                
-                
                 id = value;
                 OnPropertyChanged();
             }
@@ -76,45 +63,18 @@ namespace Eventmaker.ViewModel
             get { return name; }
             set
             {
-                try
-                {
-                    if (String.IsNullOrEmpty(value))
-                    {
-                        throw new ArgumentNullException(nameof(Name));
-                    }
-                }
-                catch (ArgumentNullException nameNullException)
-                {
-
-                    MessageDialogHelper.Show(
-                     "The Event Name cannot be empty",
-                     "Invalid Event Name!");
-                }
-                
                 name = value;
                 OnPropertyChanged();
             }
         }
+
+        //When does the SET fire in the properties???
 
         public string Description
         {
             get { return description; }
             set
             {
-                try
-                {
-                    if (String.IsNullOrEmpty(value))
-                    {
-                        throw new ArgumentNullException(nameof(Description));
-                    }
-                }
-                catch (ArgumentNullException descriptionNullException)
-                {
-
-                    MessageDialogHelper.Show(
-                     "The Event Description cannot be empty",
-                     "Invalid Event Description!");
-                }
                 description = value;
                 OnPropertyChanged();
             }
@@ -125,20 +85,6 @@ namespace Eventmaker.ViewModel
             get { return place; }
             set
             {
-                try
-                {
-                    if (String.IsNullOrEmpty(value))
-                    {
-                        throw new ArgumentNullException(nameof(Place));
-                    }
-                }
-                catch (ArgumentNullException placeNullException)
-                {
-
-                    MessageDialogHelper.Show(
-                     "The Event Place cannot be empty",
-                     "Invalid Event Place!");
-                }
                 place = value;
                 OnPropertyChanged();
             }
@@ -216,6 +162,7 @@ namespace Eventmaker.ViewModel
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        // Error messages dialog window in case sheit happens
         private class MessageDialogHelper
         {
             public static async void Show(string content, string header)
@@ -223,6 +170,45 @@ namespace Eventmaker.ViewModel
                 MessageDialog messageDialog = new MessageDialog(content, header);
                 await messageDialog.ShowAsync();
             }
+        }
+
+        // induction to flame up the fire
+
+        public void CatchThisIfYouCan(int Id, string Name, string Description, string Place)
+        {
+            try
+            {
+                if (Id <= 0)
+                {
+                    throw new IndexOutOfRangeException(nameof(Id));
+                }
+                else if (String.IsNullOrEmpty(Description))
+                {
+                    throw new ArgumentNullException(nameof(Description));
+                }
+                else if (String.IsNullOrEmpty(Place))
+                {
+                    throw new ArgumentNullException(nameof(Place));
+                }
+                else
+                {
+                    return;
+                }
+            }
+            catch (IndexOutOfRangeException exceptionCaught1)
+            {
+                MessageDialogHelper.Show(
+                    "The Event Id cannot be a negative number",
+                    "Invalid Event ID!");
+            }
+            catch (ArgumentNullException exceptionCaught2)
+            {
+
+                MessageDialogHelper.Show(
+                    "The Field(s) cannot be empty, please fill out all necesarry information!",
+                    "Missing information!");
+            }
+            
         }
     }
 }

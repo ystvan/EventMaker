@@ -35,7 +35,7 @@ namespace Eventmaker.Handler
             _dateTime = DateTimeConverter.DateTimeOffsetAndDateTime(_offset, _timeSpan);
 
             EventViewModel.EventCatalog.AddEvent(EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place, _dateTime);
-            
+            EventViewModel.CatchThisIfYouCan(EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place);
         }
 
         public void DeleteEvent()

@@ -48,7 +48,7 @@ namespace Eventmaker.Model
                     events.Add(@event);
                 }
         }
-
+      
         //public void LoadSomeEvents()
         //{
         //    //TODO change the method part q) in the guideline public >>>async void LoadEventAsync(){} await LoadJson
