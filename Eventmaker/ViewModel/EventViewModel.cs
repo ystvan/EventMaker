@@ -33,7 +33,13 @@ namespace Eventmaker.ViewModel
 
         // 2 References from another classes:
         public EventCatalogSingleton EventCatalog { get; set; }
-        public EventCatalogSingleton RevertBack { get; set; }
+        
+        
+        /*
+        
+            public CreateEventPage GoBack { get; set; }
+        */
+
 
 
         // someone like the controllar pattern, it handles the class
@@ -209,7 +215,6 @@ namespace Eventmaker.ViewModel
                     "The Field(s) cannot be empty, please fill out all necesarry information!",
                     "Missing information!");
             }
-            
         }
     }
 }

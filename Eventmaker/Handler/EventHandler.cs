@@ -38,6 +38,7 @@ namespace Eventmaker.Handler
 
             //TODO: this starts the fire, but cannot stop it:
             EventViewModel.CatchThisIfYouCan(EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place);
+
         }
 
         public void DeleteEvent()
