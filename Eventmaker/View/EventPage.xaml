@@ -37,7 +37,7 @@
                 <interactivity:Interaction.Behaviors>
                     <core:EventTriggerBehavior EventName="Click">
                         <core:NavigateToPageAction TargetPage="Eventmaker.View.CreateEventPage" />
-                        </core:EventTriggerBehavior>
+                    </core:EventTriggerBehavior>
                 </interactivity:Interaction.Behaviors>
             </AppBarButton>
         </CommandBar>
@@ -59,13 +59,13 @@
 
             <ListView x:Name="EventPagelistView" 
 			HorizontalAlignment="Left" 
-			Height="272" 
+			Height="559.559" 
 			Margin="10,10,0,0" 
 			VerticalAlignment="Top" 
 			Width="340" 
             MaxHeight="600"  
             ShowsScrollingPlaceholders="False"      
-			ItemsSource="{Binding EventCatalog.events, Mode=TwoWay}" FontFamily="Magneto" SelectedItem="{Binding SelectedEvent, Mode=TwoWay}">
+			ItemsSource="{Binding EventCatalog.events, Mode=TwoWay}" FontFamily="Magneto" SelectedItem="{Binding SelectedEvent, Mode=TwoWay}" UseLayoutRounding="False" d:LayoutRounding="Auto">
                 <!--SelectedItem="{Binding SelectedEventCommand}"-->
                 <!--SelectedItem="{Binding SelectedEvent}"-->
                 <ListView.ItemTemplate>
@@ -93,6 +93,9 @@
 
             <!--DO not forget to add a button to create NEW event and bind the command 
                 to it to navigate (Command instead of clic_event)-->
+
+            <!--summary starts here TODO: remove unnecessary buttons
+            
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="CreateEventButton" Margin="10,10,5,5">
                     <interactivity:Interaction.Behaviors>
@@ -128,17 +131,10 @@
                 </Button>
             </StackPanel>
         </StackPanel>
+        
+        summary ends here-->
 
-        <!--<ListView x:Name="listView" HorizontalAlignment="Left" Height="393" Margin="91,62.149,0,0" Grid.Row="1" VerticalAlignment="Top" Width="407" ItemsSource="{Binding EventCatalogSingleton.Events}" ItemTemplate="{StaticResource EventDataTemplate}" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
-            <Interactivity:Interaction.Behaviors>
-                <Core:EventTriggerBehavior EventName="SelectionChanged">
-                    <Core:InvokeCommandAction Command="{Binding SelectEventCommand}" CommandParameter="{Binding SelectedItem, ElementName=listView}"/>
-                </Core:EventTriggerBehavior>
-            </Interactivity:Interaction.Behaviors>
-            <ListView.RenderTransform>
-                <CompositeTransform SkewY="0.322" TranslateY="0.994"/>
-            </ListView.RenderTransform>
-        </ListView>-->
 
+        </StackPanel>
     </Grid>
 </Page>

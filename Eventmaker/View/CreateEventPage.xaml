@@ -26,8 +26,20 @@
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton Icon="Accept" Label="OK"/>
-            <AppBarButton Icon="Cancel" Label="Cancel"/>
+            <AppBarButton Icon="Add" Label="Save" Command="{Binding CreateEventCommand}">
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Click">
+                        <core:NavigateToPageAction TargetPage="Eventmaker.View.EventPage"/>
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
+            </AppBarButton>
+            <AppBarButton Icon="RepeatAll" Label="Clear all fields">
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Click">
+                        <core:NavigateToPageAction TargetPage="Eventmaker.View.CreateEventPage"/>
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
+            </AppBarButton>
         </CommandBar>
     </Page.BottomAppBar>
 
@@ -172,8 +184,10 @@
                                     Margin="0,0,0,5"
                                     ClockIdentifier="24HourClock"
                                     Time="{Binding Time}"/>
-
-        <!--the add button with a command, not a code behind click event-->
+        <!--summary--><!--
+        
+        the add button with a command, not a code behind click event
+        since we just get to know appbarbuttons we wont us it if this app is going to be used as a mobileApp
         
         <Button x:Name="CreateEventButton" 
                 Command="{Binding CreateEventCommand}" 
@@ -196,6 +210,9 @@
                            FontFamily="Segoe UI"/>
             </StackPanel>
         </Button>
+        
+        --><!--/summary-->
+        
 
 
     </Grid>
