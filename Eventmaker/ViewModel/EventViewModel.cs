@@ -67,9 +67,7 @@ namespace Eventmaker.ViewModel
                 OnPropertyChanged();
             }
         }
-
-        //When does the SET fire in the properties???
-
+        
         public string Description
         {
             get { return description; }

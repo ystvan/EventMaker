@@ -35,6 +35,8 @@ namespace Eventmaker.Handler
             _dateTime = DateTimeConverter.DateTimeOffsetAndDateTime(_offset, _timeSpan);
 
             EventViewModel.EventCatalog.AddEvent(EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place, _dateTime);
+
+            //TODO: this starts the fire, but cannot stop it:
             EventViewModel.CatchThisIfYouCan(EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place);
         }
 
