@@ -54,8 +54,8 @@ namespace Eventmaker.Persistency
             {
 
                 MessageDialogHelper.Show(
-                    "Can't find any Events to show! First try adding and save some Events before you Load Events!",
-                    "File not found!");
+                    "Your Event List is empty! First try adding and save some Events before you Load Events!",
+                    "No Events to show!");
                 return null;
             }
         }
