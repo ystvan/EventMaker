@@ -26,7 +26,6 @@ namespace Eventmaker.View
         {
             this.InitializeComponent();
         }
-        
 
     }
 }

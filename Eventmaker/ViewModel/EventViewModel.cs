@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.Activation;
+using Windows.UI;
 using Windows.UI.Popups;
+using Windows.UI.Xaml.Media;
 using Eventmaker.Annotations;
 using Eventmaker.Common;
 using Eventmaker.Converter;
@@ -30,6 +32,9 @@ namespace Eventmaker.ViewModel
         private DateTimeOffset date;
         private TimeSpan time;
         private ICommand _createEventCommand;
+        private ICommand _selectedEventCommand;
+        private ICommand _deleteEventCommand;
+        private string _textBoxBorderBrushColor;
 
         // 2 References from another classes:
         public EventCatalogSingleton EventCatalog { get; set; }
@@ -126,17 +131,13 @@ namespace Eventmaker.ViewModel
         }
 
         public static Event SelectedEvent { get; set; }
-
-        private ICommand _selectedEventCommand;
-
+        
         public ICommand SelectedEventCommand
         {
             get { return _selectedEventCommand; }
             set { _selectedEventCommand = value; }
         }
         
-        private ICommand _deleteEventCommand;
-
         public ICommand DeleteEventCommand
         {
             get { return _deleteEventCommand; }
@@ -165,6 +166,35 @@ namespace Eventmaker.ViewModel
             
             return result;
 
+        }
+
+        public string TextBoxBorderBrushColor
+        {
+            get { return _textBoxBorderBrushColor; }
+            set
+            {
+                
+                if (String.IsNullOrEmpty(Name) && String.IsNullOrWhiteSpace(Name))
+                {
+                    _textBoxBorderBrushColor = new SolidColorBrush(Colors.Red).ToString();
+                    OnPropertyChanged(value);
+                }
+                if (String.IsNullOrEmpty(Description) && String.IsNullOrWhiteSpace(Description))
+                {
+                    _textBoxBorderBrushColor = new SolidColorBrush(Colors.Red).ToString();
+                    OnPropertyChanged();
+                }
+                if (String.IsNullOrEmpty(Place) && String.IsNullOrWhiteSpace(Place))
+                {
+                    _textBoxBorderBrushColor = new SolidColorBrush(Colors.Red).ToString();
+                    OnPropertyChanged();
+                }
+                else
+                {
+                    _textBoxBorderBrushColor = value;
+                }
+                
+            }
         }
     }
 }

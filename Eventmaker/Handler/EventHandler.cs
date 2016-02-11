@@ -31,7 +31,7 @@ namespace Eventmaker.Handler
         {
             EventViewModel = eventViewModel;
         }
-        
+
         public void CreateEvent()
         {
             _offset = EventViewModel.Date;
@@ -46,11 +46,11 @@ namespace Eventmaker.Handler
             }
             else
             {
-                
+
                 MessageDialogHelper.Show(
                     "The Field(s) cannot be empty, please fill out all necesarry information!",
                     "Missing information!");
-                
+
             }
 
         }
