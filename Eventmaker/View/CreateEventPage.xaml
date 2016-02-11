@@ -124,7 +124,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!--putting the textboxes and textblock next to each other (vertical-horizontal in logical way), specifying which grid they are placed-->
+        <!--putting the textboxes and textblock next to 
+        each other (vertical-horizontal in logical way), 
+        specifying which grid they are placed-->
 
         <TextBlock  x:Name="HeaderTextBlock" Grid.ColumnSpan="2"
                                     Text="Add new Event" 
@@ -184,36 +186,8 @@
                                     Margin="0,0,0,5"
                                     ClockIdentifier="24HourClock"
                                     Time="{Binding Time}"/>
-        <!--summary--><!--
         
-        the add button with a command, not a code behind click event
-        since we just get to know appbarbuttons we wont us it if this app is going to be used as a mobileApp
         
-        <Button x:Name="CreateEventButton" 
-                Command="{Binding CreateEventCommand}" 
-                Margin="0,10,5,5" Grid.Row="7" 
-                Grid.Column="1" 
-                VerticalAlignment="Top">
-            <interactivity:Interaction.Behaviors>
-                <core:EventTriggerBehavior EventName="Click">
-                    <core:NavigateToPageAction TargetPage="Eventmaker.View.EventPage"/>
-                </core:EventTriggerBehavior>
-            </interactivity:Interaction.Behaviors>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock 
-                           Name="NewEventIcon"
-                           Text="&#xE710;"
-                           FontFamily="Segoe MDL2 Assets"
-                           Margin="0,4,5,0"/>
-                <TextBlock      
-                           Text="Add"
-                           FontFamily="Segoe UI"/>
-            </StackPanel>
-        </Button>
         
-        --><!--/summary-->
-        
-
-
     </Grid>
 </Page>

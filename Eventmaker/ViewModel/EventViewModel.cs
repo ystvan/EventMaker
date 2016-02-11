@@ -34,14 +34,6 @@ namespace Eventmaker.ViewModel
         // 2 References from another classes:
         public EventCatalogSingleton EventCatalog { get; set; }
         
-        
-        /*
-        
-            public CreateEventPage GoBack { get; set; }
-        */
-
-
-
         // someone like the controllar pattern, it handles the class
         public Handler.EventHandler EventHandler { get; set; }
         
@@ -133,10 +125,6 @@ namespace Eventmaker.ViewModel
             }
         }
 
-        // TODO part v) in guide:
-        // implement this below
-        //TODO: what is this? t)+v)+u) in the guide on Gdrive
-
         public static Event SelectedEvent { get; set; }
 
         private ICommand _selectedEventCommand;
@@ -165,56 +153,18 @@ namespace Eventmaker.ViewModel
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        // Error messages dialog window in case sheit happens
-        private class MessageDialogHelper
+        
+        public bool IsValidEvent()
         {
-            public static async void Show(string content, string header)
-            {
-                MessageDialog messageDialog = new MessageDialog(content, header);
-                await messageDialog.ShowAsync();
-            }
-        }
+            bool result = false;
 
-        // induction to flame up the fire TODO: I might need a FINALLY block??? 
-        /*
-            Or do I Need case1-2-3-4 and TODO: break??
-        */
+            result = Id != 0;
+            result &= !String.IsNullOrEmpty(Name) && !String.IsNullOrWhiteSpace(Name);
+            result &= !String.IsNullOrEmpty(Description) && !String.IsNullOrWhiteSpace(Description);
+            result &= !String.IsNullOrEmpty(Place) && !String.IsNullOrWhiteSpace(Place);
+            
+            return result;
 
-        public void CatchThisIfYouCan(int Id, string Name, string Description, string Place)
-        {
-            try
-            {
-                if (Id <= 0)
-                {
-                    throw new IndexOutOfRangeException(nameof(Id));
-                }
-                else if (String.IsNullOrEmpty(Description))
-                {
-                    throw new ArgumentNullException(nameof(Description));
-                }
-                else if (String.IsNullOrEmpty(Place))
-                {
-                    throw new ArgumentNullException(nameof(Place));
-                }
-                else
-                {
-                    return;
-                }
-            }
-            catch (IndexOutOfRangeException exceptionCaught1)
-            {
-                MessageDialogHelper.Show(
-                    "The Event Id cannot be a negative number",
-                    "Invalid Event ID!");
-            }
-            catch (ArgumentNullException exceptionCaught2)
-            {
-
-                MessageDialogHelper.Show(
-                    "The Field(s) cannot be empty, please fill out all necesarry information!",
-                    "Missing information!");
-            }
         }
     }
 }
