@@ -44,6 +44,7 @@ namespace Eventmaker.Handler
             {
                 EventViewModel.EventCatalog.AddEvent
                     (EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place, _dateTime);
+                //EventViewModel.GoBackToEventsAfterSaving();
             }
             else
             {
@@ -61,13 +62,7 @@ namespace Eventmaker.Handler
             EventViewModel.SelectedEvent = selectedEvent;
         }
 
-
-        public void GoBackToEventsAfterSaving()
-        {
-            INavigate newNavigate = new Frame();
-            newNavigate.Navigate(typeof(EventPage));
-        }
-
+        
         public async void EventValidationErrorMsg()
         {
             var dialog = new Windows.UI.Popups.MessageDialog(
@@ -78,12 +73,14 @@ namespace Eventmaker.Handler
                 ("Yes")
             {
                 Invoked = command => EventViewModel.EventCatalog.AddEvent
-                (EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place, _dateTime),
+                                        (EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, 
+                                            EventViewModel.Place, _dateTime),
                 Id = 0
             });
             dialog.Commands.Add (new Windows.UI.Popups.UICommand
                 ("No, go back")
             {
+                Invoked = command => EventViewModel.SetBorderBrushColor(),
                 Id = 1
             });
 
@@ -103,7 +100,8 @@ namespace Eventmaker.Handler
             dialog.Commands.Add(new Windows.UI.Popups.UICommand
                 ("Yes")
             {
-                Invoked = command => EventViewModel.EventCatalog.events.Remove(EventViewModel.SelectedEvent),
+                Invoked = command => EventViewModel.EventCatalog.events.Remove(
+                                        EventViewModel.SelectedEvent),
                 Id = 0
             });
             dialog.Commands.Add(new Windows.UI.Popups.UICommand

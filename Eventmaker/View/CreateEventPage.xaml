@@ -132,7 +132,7 @@
         <TextBlock  Grid.Row="1"    
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Id" Height="16" Margin="0,8,2,13" Width="11"/>
-        <TextBox    Grid.Row="1"    x:Name="IdTextBox" BorderBrush="{Binding TextBoxBorderBrushColor}"
+        <TextBox    Grid.Row="1"    x:Name="IdTextBox" BorderBrush="{Binding TextBoxBorderBrushColor, Mode=TwoWay}"
                                     Grid.Column="1" PlaceholderText="Give a number according to its pripority"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Id, Mode=TwoWay}" Height="32" Margin="0,0,0,5" Width="295"/>
@@ -140,7 +140,7 @@
         <TextBlock  Grid.Row="2"    
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Name" Height="16" Margin="0,8,2,13" Width="33"/>
-        <TextBox    Grid.Row="2"    x:Name="NameTextBox" BorderBrush="{Binding TextBoxBorderBrushColor}"
+        <TextBox    Grid.Row="2"    x:Name="NameTextBox" BorderBrush="{Binding TextBoxBorderBrushColor, Mode=TwoWay}"
                                     Grid.Column="1" PlaceholderText="What shall it remind you?"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Name, Mode=TwoWay}" Height="32" Margin="0,0,0,5" Width="295"/>
@@ -149,7 +149,7 @@
         <TextBlock  Grid.Row="3" 
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Notes" Height="16" Margin="0,8,2,13" Width="33"/>
-        <TextBox    Grid.Row="3"    x:Name="DescriptionTextBox" BorderBrush="{Binding TextBoxBorderBrushColor}"
+        <TextBox    Grid.Row="3"    x:Name="DescriptionTextBox" BorderBrush="{Binding TextBoxBorderBrushColor, Mode=TwoWay}"
                                     Grid.Column="1" PlaceholderText="What is this event about?"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Description, Mode=TwoWay}" Height="32" Margin="0,0,0,5" Width="295"/>
@@ -158,7 +158,7 @@
         <TextBlock  Grid.Row="4" 
                                     Style="{StaticResource CreateEventTextBlockStyle}" 
                                     Text="Place" Height="16" Margin="0,8,2,13" Width="29"/>
-        <TextBox    Grid.Row="4"    x:Name="PlaceTextBox" BorderBrush="{Binding TextBoxBorderBrushColor}"
+        <TextBox    Grid.Row="4"    x:Name="PlaceTextBox" BorderBrush="{Binding TextBoxBorderBrushColor, Mode=TwoWay}"
                                     Grid.Column="1" PlaceholderText="Where is this Event taking place?"
                                     Style="{StaticResource CreateEventTextBoxStyle}" 
                                     Text="{Binding Place, Mode=TwoWay}" Height="32" Margin="0,0,0,5" Width="295"/>
