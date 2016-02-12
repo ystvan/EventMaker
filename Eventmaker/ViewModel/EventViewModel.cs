@@ -245,16 +245,5 @@ namespace Eventmaker.ViewModel
             
         }
 
-        public EventCatalogSingleton EventCatalogSingleton
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
     }
 }

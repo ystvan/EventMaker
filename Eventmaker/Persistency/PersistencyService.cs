@@ -69,19 +69,6 @@ namespace Eventmaker.Persistency
             }
         }
 
-        //Not sure if we need to save it to xml format but this can be useful anyway later on
-        // Just uncomment the code below:
-        //
-        //private static string xmlFileName = "EventsAsXml1.dat";
-
-        //public static async void SaveEventsAsXmlAsync(ObservableCollection<Event> events)
-        //{
-        //    XmlSerializer xmlSerializer = new XmlSerializer(events.GetType());
-        //    StringWriter textWriter = new StringWriter();
-        //    xmlSerializer.Serialize(textWriter, events);
-        //    SerializeEventsFileAsync(textWriter.ToString(), xmlFileName);
-        //}
-
-        //
+        
     }
 }

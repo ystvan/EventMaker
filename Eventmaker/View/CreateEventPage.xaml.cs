@@ -27,28 +27,6 @@ namespace Eventmaker.View
             this.InitializeComponent();
         }
 
-        internal ViewModel.EventViewModel EventViewModel
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        internal Common.RelayCommand RelayCommand
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+       
     }
 }

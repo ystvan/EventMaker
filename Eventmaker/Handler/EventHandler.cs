@@ -44,7 +44,7 @@ namespace Eventmaker.Handler
             {
                 EventViewModel.EventCatalog.AddEvent
                     (EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place, _dateTime);
-                //EventViewModel.GoBackToEventsAfterSaving();
+                
             }
             else
             {

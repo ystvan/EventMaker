@@ -64,28 +64,5 @@ namespace Eventmaker.Model
             PersistencyService.SaveEventsAsJsonAsync(events);
         }
 
-        internal PersistencyService PersistencyService
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public ObservableCollection<object> ObservableCollection
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
     }
 }

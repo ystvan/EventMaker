@@ -32,18 +32,7 @@ namespace Eventmaker.Common
             _canExecute = canExecute;
         }
 
-        internal Handler.EventHandler EventHandler
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
+       
         public bool CanExecute(object parameter)
         {
             if (!typeof(T).Equals(parameter.GetType())) return false;
