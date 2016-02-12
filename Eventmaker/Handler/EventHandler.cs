@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Notifications;
 using Windows.UI.Popups;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Eventmaker.ViewModel;
 using Eventmaker.Converter;
@@ -47,9 +48,7 @@ namespace Eventmaker.Handler
             else
             {
 
-                MessageDialogHelper.Show(
-                    "The Field(s) cannot be empty, please fill out all necesarry information!",
-                    "Missing information!");
+                EventValidationErrorMsg();
 
             }
 
@@ -67,16 +66,7 @@ namespace Eventmaker.Handler
             
         }
 
-        private class MessageDialogHelper
-        {
-            public static async void Show(string content, string header)
-            {
-                MessageDialog messageDialog = new MessageDialog(content, header);
-                await messageDialog.ShowAsync();
-
-            }
-        }
-
+        
         //public void NavigateToEventPage()
         //{
 
@@ -91,5 +81,31 @@ namespace Eventmaker.Handler
             
 
         //}
+
+        public async void EventValidationErrorMsg()
+        {
+            var dialog = new Windows.UI.Popups.MessageDialog(
+                         "Are you sure that you want to save the Event, "+
+                         "without specifying some important details?", "Warning! Empty Field(s)!");
+
+            dialog.Commands.Add (new Windows.UI.Popups.UICommand
+                ("Yes")
+            {
+                Invoked = command => EventViewModel.EventCatalog.AddEvent
+                (EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place, _dateTime),
+                Id = 0
+            });
+            dialog.Commands.Add (new Windows.UI.Popups.UICommand
+                ("No, go back")
+            {
+                Id = 1
+            });
+
+            dialog.DefaultCommandIndex = 0;
+            dialog.CancelCommandIndex = 1;
+
+            var result = await dialog.ShowAsync();
+            
+        }
     }
 }
