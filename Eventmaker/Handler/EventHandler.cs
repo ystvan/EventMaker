@@ -26,7 +26,7 @@ namespace Eventmaker.Handler
 
         //connection both ways between the handler and the viewmodel
         public EventViewModel EventViewModel { get; set; }
-        
+
         //ctorp+TAB
         public EventHandler(EventViewModel eventViewModel)
         {

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="4bdc23b6-8374-4239-ba16-b21f82e32dd6" name="Eventmaker" linkedPackageId="e20e9e5d-4ebd-4b0e-9f25-7257aab35966" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="515f4c14-c7dc-4ee9-a15a-06c8db5cb5a3">
+      <profileInstance Id="7ae3c5ae-b88b-49ae-ba6c-9721116e2ea3" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="642c7873-c52c-4c3f-9611-99196989250a">
+      <profileInstance Id="fabe41b8-e930-4635-9fd7-79fdb290444e" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="24bb80d6-df14-47bc-b634-67f18a8e2a6e" name="Class1" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="ff98c5a2-1431-49db-92fe-d1001c875b04" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="e20e9e5d-4ebd-4b0e-9f25-7257aab35966" name="EventMakerClassDiagram">
+    <elementDefinition Id="1f6bb3aa-39b3-4035-9409-e6d547ef5d23" />
+  </package>
+</logicalClassDesignerModel>

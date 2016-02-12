@@ -15,6 +15,18 @@ namespace Eventmaker.Model
         public string Place { get; set; }
         public DateTime DateTime { get; set; }
 
+        public System.Collections.ObjectModel.ObservableCollection<object> ObservableCollection
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public Event() 
         {
             

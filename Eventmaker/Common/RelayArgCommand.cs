@@ -15,21 +15,33 @@ namespace Eventmaker.Common
         private readonly Action<T> _execute;
         private readonly Func<bool> _canExecute;
 
-       
+
         public event EventHandler CanExecuteChanged;
-        
+
         public RelayArgCommand(Action<T> execute)
             : this(execute, null)
         {
 
         }
-        
+
         public RelayArgCommand(Action<T> execute, Func<bool> canExecute)
         {
             if (execute == null)
                 throw new ArgumentNullException("execute");
             _execute = execute;
             _canExecute = canExecute;
+        }
+
+        internal Handler.EventHandler EventHandler
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
         }
 
         public bool CanExecute(object parameter)
