@@ -33,7 +33,10 @@ namespace Eventmaker.ViewModel
         private ICommand _createEventCommand;
         private ICommand _selectedEventCommand;
         private ICommand _deleteEventCommand;
-        private SolidColorBrush _textBoxBorderBrushColor;
+        private SolidColorBrush _idTextBoxBorderBrushColor;
+        private SolidColorBrush _nameTextBoxBorderBrushColor;
+        private SolidColorBrush _descriptionTextBoxBorderBrushColor;
+        private SolidColorBrush _placeTextBoxBorderBrushColor;
 
         // 2 References from another classes:
         public EventCatalogSingleton EventCatalog { get; set; }
@@ -102,17 +105,47 @@ namespace Eventmaker.ViewModel
             set { time = value; OnPropertyChanged(); }
         }
 
-        public SolidColorBrush TextBoxBorderBrushColor
+        public SolidColorBrush IdTextBoxBorderBrushColor
         {
-            get { return _textBoxBorderBrushColor; }
+            get { return _idTextBoxBorderBrushColor; }
             set
             {
-                _textBoxBorderBrushColor = value;
+                _idTextBoxBorderBrushColor = value;
                 OnPropertyChanged();
             }
         }
-        
-        
+
+        public SolidColorBrush NameTextBoxBorderBrushColor
+        {
+            get { return _nameTextBoxBorderBrushColor; }
+            set
+            {
+                _nameTextBoxBorderBrushColor = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public SolidColorBrush DescriptionTextBoxBorderBrushColor
+        {
+            get { return _descriptionTextBoxBorderBrushColor; }
+            set
+            {
+                _descriptionTextBoxBorderBrushColor = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public SolidColorBrush PlaceTextBoxBorderBrushColor
+        {
+            get { return _placeTextBoxBorderBrushColor; }
+            set
+            {
+                _placeTextBoxBorderBrushColor = value;
+                OnPropertyChanged();
+            }
+        }
+
+
         //Constructor:
         public EventViewModel()
         {
@@ -176,21 +209,39 @@ namespace Eventmaker.ViewModel
             return result;
 
         }
-
-        
-        //TODO: implement this shit:
-        //public void GoBackToEventsAfterSaving()
-        //{
-        //    INavigate newNavigate = new Frame();
-        //    newNavigate.Navigate(typeof(EventPage));
-        //}
         
         public void SetBorderBrushColor()
         {
             var green = new SolidColorBrush(Colors.LawnGreen);
             var red = new SolidColorBrush(Colors.Red);
             
-            TextBoxBorderBrushColor = IsValidEvent() ? red : green;
+            IdTextBoxBorderBrushColor = Id <= 0 ? red : green;
+
+            if (String.IsNullOrEmpty(Name) && String.IsNullOrWhiteSpace(Name))
+            {
+                NameTextBoxBorderBrushColor = red;
+            }
+            else
+            {
+                NameTextBoxBorderBrushColor = green;
+            }
+            if (String.IsNullOrEmpty(Description) && String.IsNullOrWhiteSpace(Description))
+            {
+                DescriptionTextBoxBorderBrushColor = red;
+            }
+            else
+            {
+                DescriptionTextBoxBorderBrushColor = green;
+            }
+            if (String.IsNullOrEmpty(Place) && String.IsNullOrWhiteSpace(Place))
+            {
+                PlaceTextBoxBorderBrushColor = red;
+            }
+            else
+            {
+                PlaceTextBoxBorderBrushColor = green;
+            }
+                
             
         }
     }
