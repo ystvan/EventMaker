@@ -42,45 +42,31 @@ namespace Eventmaker.Handler
 
             if (EventViewModel.IsValidEvent())
             {
-                EventViewModel.EventCatalog.AddEvent(EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place, _dateTime);
-                
+                EventViewModel.EventCatalog.AddEvent
+                    (EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place, _dateTime);
             }
             else
             {
-
                 EventValidationErrorMsg();
-
             }
-
         }
 
         public void DeleteEvent()
         {
-            EventViewModel.EventCatalog.events.Remove(EventViewModel.SelectedEvent);
-            
+            DeleteEventErrorMsg();
         }
 
         public void SetSelectedEvent(Event selectedEvent)
         {
             EventViewModel.SelectedEvent = selectedEvent;
-            
         }
 
-        
-        //public void NavigateToEventPage()
-        //{
 
-        //    INavigate newNavigate = new Frame();
-        //    newNavigate.Navigate(typeof(EventPage));
-
-            
-            
-        //    NavigateToPageAction newAction = new NavigateToPageAction();
-
-        //    newAction.TargetPage(newNavigate);
-            
-
-        //}
+        public void GoBackToEventsAfterSaving()
+        {
+            INavigate newNavigate = new Frame();
+            newNavigate.Navigate(typeof(EventPage));
+        }
 
         public async void EventValidationErrorMsg()
         {
@@ -106,6 +92,31 @@ namespace Eventmaker.Handler
 
             var result = await dialog.ShowAsync();
             
+        }
+
+        public async void DeleteEventErrorMsg()
+        {
+            var dialog = new Windows.UI.Popups.MessageDialog(
+                         "Are you sure that you want to delete the selected Event, " +
+                         "this action removes it pernamently from your list!", "Warning! Deleting Event from List!");
+
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand
+                ("Yes")
+            {
+                Invoked = command => EventViewModel.EventCatalog.events.Remove(EventViewModel.SelectedEvent),
+                Id = 0
+            });
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand
+                ("No, go back")
+            {
+                Id = 1
+            });
+
+            dialog.DefaultCommandIndex = 0;
+            dialog.CancelCommandIndex = 1;
+
+            var result = await dialog.ShowAsync();
+
         }
     }
 }
