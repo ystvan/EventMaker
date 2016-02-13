@@ -14,6 +14,7 @@
 
     <Page.BottomAppBar>
         <CommandBar>
+            <!--Button for easier navigation by using app on phone-->
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="AppBarButton" Label="Go to Events">
                     <interactivity:Interaction.Behaviors>
@@ -23,10 +24,13 @@
                     </interactivity:Interaction.Behaviors>
                 </AppBarButton>
             </CommandBar.SecondaryCommands>
+            
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
+            <!--create new event button by binding "create" command-->
             <AppBarButton Icon="Add" Label="Save" Command="{Binding CreateEventCommand}"/>
+            <!-- "refresh" button, clear all fields and start over adding data-->
             <AppBarButton Icon="RepeatAll" Label="Clear all fields">
                 <interactivity:Interaction.Behaviors>
                     <core:EventTriggerBehavior EventName="Click">
@@ -34,6 +38,15 @@
                     </core:EventTriggerBehavior>
                 </interactivity:Interaction.Behaviors>
             </AppBarButton>
+            <!-- Back button, using navigation-->
+            <AppBarButton HorizontalAlignment="Stretch" Icon="Back" Label="Back">
+                <interactivity:Interaction.Behaviors>
+                    <core:EventTriggerBehavior EventName="Click">
+                        <core:NavigateToPageAction TargetPage="Eventmaker.View.EventPage"/>
+                    </core:EventTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
+            </AppBarButton>
+            
         </CommandBar>
     </Page.BottomAppBar>
 

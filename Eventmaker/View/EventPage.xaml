@@ -13,6 +13,7 @@
 
     <Page.BottomAppBar>
         <CommandBar>
+            <!--Button for easier navigation by using app on phone-->
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="Navigate2CreateEventPageButton" Label="Create Event">
                     <interactivity:Interaction.Behaviors>
@@ -25,7 +26,7 @@
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton x:Name="SearchEventAppbarButton" Label="Search" Icon="Find"/>
+            <!--delete button binding the Delete command-->
             <AppBarButton x:Name="DeleteEventAppBarbutton" Label="Delete" Icon="Delete">
                 <interactivity:Interaction.Behaviors>
                     <core:EventTriggerBehavior EventName="Click">
@@ -33,13 +34,15 @@
                     </core:EventTriggerBehavior>
                 </interactivity:Interaction.Behaviors>
             </AppBarButton>
-            <AppBarButton x:Name="CreateNewEventAppbarButton" HorizontalAlignment="Stretch" Icon="Add" Label="New" VerticalAlignment="Stretch" d:LayoutOverrides="Height">
+            <!--create new event button by navigating to CreateEventPage-->
+            <AppBarButton x:Name="CreateNewEventAppbarButton" HorizontalAlignment="Stretch" Icon="Add" Label="New">
                 <interactivity:Interaction.Behaviors>
                     <core:EventTriggerBehavior EventName="Click">
                         <core:NavigateToPageAction TargetPage="Eventmaker.View.CreateEventPage" />
                     </core:EventTriggerBehavior>
                 </interactivity:Interaction.Behaviors>
             </AppBarButton>
+            
         </CommandBar>
     </Page.BottomAppBar>
 

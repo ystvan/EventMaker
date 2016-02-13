@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Notifications;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Eventmaker.Common;
 using Eventmaker.ViewModel;
 using Eventmaker.Converter;
 using Eventmaker.Model;
@@ -22,11 +24,11 @@ namespace Eventmaker.Handler
         private DateTimeOffset _offset;
         private TimeSpan _timeSpan;
         private DateTime _dateTime;
-
+        
 
         //connection both ways between the handler and the viewmodel
-        public EventViewModel EventViewModel { get; set; }
-
+        public static EventViewModel EventViewModel { get; set; }
+        
         //ctorp+TAB
         public EventHandler(EventViewModel eventViewModel)
         {
@@ -46,6 +48,7 @@ namespace Eventmaker.Handler
             {
                 EventViewModel.EventCatalog.AddEvent
                     (EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place, _dateTime);
+                    EventSavedConfirmMsg();
                 
                 
             }
@@ -125,20 +128,21 @@ namespace Eventmaker.Handler
 
         // promting the user with a quick message that the event has been saved
 
-        public async void EventSavedConfirmMsg()
+        public static async void EventSavedConfirmMsg()
         {
             var dialog = new Windows.UI.Popups.MessageDialog(
                             "Your Event has been added to your list",
                                 "Saving Successful!");
             dialog.Commands.Add(new Windows.UI.Popups.UICommand
-                ("OK, let's go to my List!")
+                ("OK")
             {
-                Invoked = command => EventViewModel.,
+                Invoked = command => EventViewModel.SetBorderBrushColor(),
                 Id = 0
             });
             dialog.Commands.Add(new Windows.UI.Popups.UICommand
-                ("Go back, add some more")
+                ("Add More")
             {
+                
                 Id = 1
             });
             dialog.DefaultCommandIndex = 0;

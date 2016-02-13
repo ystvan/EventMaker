@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.ApplicationModel.Activation;
 using Windows.UI;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 using Eventmaker.Annotations;
 using Eventmaker.Common;
@@ -16,6 +18,7 @@ using Eventmaker.Converter;
 using Eventmaker.Handler;
 using Eventmaker.Model;
 using Eventmaker.View;
+using Microsoft.Xaml.Interactions.Core;
 
 namespace Eventmaker.ViewModel
 {
@@ -38,6 +41,7 @@ namespace Eventmaker.ViewModel
         private SolidColorBrush _descriptionTextBoxBorderBrushColor;
         private SolidColorBrush _placeTextBoxBorderBrushColor;
 
+        
         // 2 References from another classes:
         public EventCatalogSingleton EventCatalog { get; set; }
         
@@ -156,9 +160,11 @@ namespace Eventmaker.ViewModel
             EventHandler = new Handler.EventHandler(this);
             _createEventCommand = new RelayCommand(EventHandler.CreateEvent);
             _deleteEventCommand = new RelayCommand(EventHandler.DeleteEvent);
+
+
         }
 
-        //RelayCommand, ICommand
+        //RelayCommand, ICommand, DelegateCommand
 
         public ICommand CreateEventCommand
         {
@@ -247,5 +253,6 @@ namespace Eventmaker.ViewModel
             
         }
 
+        
     }
 }
