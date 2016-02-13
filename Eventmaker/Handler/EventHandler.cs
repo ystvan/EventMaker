@@ -40,18 +40,22 @@ namespace Eventmaker.Handler
 
             _dateTime = DateTimeConverter.DateTimeOffsetAndDateTime(_offset, _timeSpan);
 
+
+            // condition check (if the Event is valid, meaning it contains sufficient info, then call the Add() method:
             if (EventViewModel.IsValidEvent())
             {
                 EventViewModel.EventCatalog.AddEvent
                     (EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place, _dateTime);
                 
             }
+            // otherwise promt the user, either confirm saving or step back and correct missing info
             else
             {
                 EventValidationErrorMsg();
             }
         }
 
+        // Inserting one step between the command calling, waiting for user confirmation
         public void DeleteEvent()
         {
             DeleteEventErrorMsg();
@@ -62,7 +66,7 @@ namespace Eventmaker.Handler
             EventViewModel.SelectedEvent = selectedEvent;
         }
 
-        
+        // this is the messagedialog containing commands (confirm saving, or going back and calling the SetBorderBrushColor() method:
         public async void EventValidationErrorMsg()
         {
             var dialog = new Windows.UI.Popups.MessageDialog(
@@ -91,6 +95,7 @@ namespace Eventmaker.Handler
             
         }
 
+        // user needs to confirm if really wants to delete the selected event:
         public async void DeleteEventErrorMsg()
         {
             var dialog = new Windows.UI.Popups.MessageDialog(
