@@ -47,6 +47,7 @@ namespace Eventmaker.Handler
                 EventViewModel.EventCatalog.AddEvent
                     (EventViewModel.Id, EventViewModel.Name, EventViewModel.Description, EventViewModel.Place, _dateTime);
                 
+                
             }
             // otherwise promt the user, either confirm saving or step back and correct missing info
             else
@@ -119,6 +120,32 @@ namespace Eventmaker.Handler
             dialog.CancelCommandIndex = 1;
 
             var result = await dialog.ShowAsync();
+
+        }
+
+        // promting the user with a quick message that the event has been saved
+
+        public async void EventSavedConfirmMsg()
+        {
+            var dialog = new Windows.UI.Popups.MessageDialog(
+                            "Your Event has been added to your list",
+                                "Saving Successful!");
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand
+                ("OK, let's go to my List!")
+            {
+                Invoked = command => EventViewModel.,
+                Id = 0
+            });
+            dialog.Commands.Add(new Windows.UI.Popups.UICommand
+                ("Go back, add some more")
+            {
+                Id = 1
+            });
+            dialog.DefaultCommandIndex = 0;
+            dialog.CancelCommandIndex = 1;
+
+            var result = await dialog.ShowAsync();
+
 
         }
     }

@@ -197,6 +197,7 @@ namespace Eventmaker.ViewModel
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
         
+        // validating the Event, checking for missing fields
         public bool IsValidEvent()
         {
             bool result = false;
@@ -210,6 +211,7 @@ namespace Eventmaker.ViewModel
 
         }
         
+        // setting the textboxes' bordercolor, that is being binded in the view
         public void SetBorderBrushColor()
         {
             var green = new SolidColorBrush(Colors.LawnGreen);
