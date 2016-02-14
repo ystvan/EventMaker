@@ -11,6 +11,7 @@ using System.Windows.Input;
 using Windows.ApplicationModel.Activation;
 using Windows.UI;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Eventmaker.Annotations;
 using Eventmaker.Common;
@@ -24,7 +25,7 @@ namespace Eventmaker.ViewModel
 {
 
 
-    class EventViewModel : INotifyPropertyChanged
+    internal class EventViewModel : INotifyPropertyChanged
     {
         // private backing fields:
         private int id;
@@ -41,13 +42,13 @@ namespace Eventmaker.ViewModel
         private SolidColorBrush _descriptionTextBoxBorderBrushColor;
         private SolidColorBrush _placeTextBoxBorderBrushColor;
 
-        
+
         // 2 References from another classes:
         public EventCatalogSingleton EventCatalog { get; set; }
-        
+
         // someone like the controllar pattern, it handles the class
         public Handler.EventHandler EventHandler { get; set; }
-        
+
         //ObservableCollection getter and setter
         public ObservableCollection<Event> Events
         {
@@ -76,7 +77,7 @@ namespace Eventmaker.ViewModel
                 OnPropertyChanged();
             }
         }
-        
+
         public string Description
         {
             get { return description; }
@@ -96,17 +97,25 @@ namespace Eventmaker.ViewModel
                 OnPropertyChanged();
             }
         }
-        
+
         public DateTimeOffset Date
         {
             get { return date; }
-            set { date = value; OnPropertyChanged(); }
+            set
+            {
+                date = value;
+                OnPropertyChanged();
+            }
         }
 
         public TimeSpan Time
         {
             get { return time; }
-            set { time = value; OnPropertyChanged(); }
+            set
+            {
+                time = value;
+                OnPropertyChanged();
+            }
         }
 
         public SolidColorBrush IdTextBoxBorderBrushColor
@@ -179,13 +188,13 @@ namespace Eventmaker.ViewModel
         }
 
         public static Event SelectedEvent { get; set; }
-        
+
         public ICommand SelectedEventCommand
         {
             get { return _selectedEventCommand; }
             set { _selectedEventCommand = value; }
         }
-        
+
         public ICommand DeleteEventCommand
         {
             get { return _deleteEventCommand; }
@@ -202,7 +211,7 @@ namespace Eventmaker.ViewModel
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
-        
+
         // validating the Event, checking for missing fields
         public bool IsValidEvent()
         {
@@ -212,17 +221,17 @@ namespace Eventmaker.ViewModel
             result &= !String.IsNullOrEmpty(Name) && !String.IsNullOrWhiteSpace(Name);
             result &= !String.IsNullOrEmpty(Description) && !String.IsNullOrWhiteSpace(Description);
             result &= !String.IsNullOrEmpty(Place) && !String.IsNullOrWhiteSpace(Place);
-            
+
             return result;
 
         }
-        
+
         // setting the textboxes' bordercolor, that is being binded in the view
         public void SetBorderBrushColor()
         {
             var green = new SolidColorBrush(Colors.LawnGreen);
             var red = new SolidColorBrush(Colors.Red);
-            
+
             IdTextBoxBorderBrushColor = Id <= 0 ? red : green;
 
             if (String.IsNullOrEmpty(Name) && String.IsNullOrWhiteSpace(Name))
@@ -249,10 +258,10 @@ namespace Eventmaker.ViewModel
             {
                 PlaceTextBoxBorderBrushColor = green;
             }
-                
-            
+
+
         }
 
-        
+       
     }
 }

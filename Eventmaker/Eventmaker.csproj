@@ -92,7 +92,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="EventMaker.cd" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
