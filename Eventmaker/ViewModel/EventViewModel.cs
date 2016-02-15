@@ -226,7 +226,7 @@ namespace Eventmaker.ViewModel
 
         }
 
-        // setting the textboxes' bordercolor, that is being binded in the view
+        // setting the textboxes' bordercolor, that is being binded to the view
         public void SetBorderBrushColor()
         {
             var green = new SolidColorBrush(Colors.LawnGreen);

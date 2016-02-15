@@ -37,7 +37,7 @@ namespace Eventmaker.Model
             LoadEventAsync();
         }
 
-        //Just some random events to be shown at the begining
+        //Just some random events to be shown at the begining, replaced by json later (load the list from a file)
 
         public async void LoadEventAsync()
         {

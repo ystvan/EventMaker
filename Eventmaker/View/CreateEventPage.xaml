@@ -56,7 +56,8 @@
         <viewModel:EventViewModel/>
     </Page.DataContext>
 
-    <!--By using static style resources we can ensure a steady design flow and save up quite a lot typing when modification is required-->
+    <!--By using static style resources we can ensure a steady design flow and save up 
+        quite a lot typing when modification is required-->
 
     <Page.Resources>
         <Style TargetType="TextBlock" x:Key="CreateEventTextBlockStyle">

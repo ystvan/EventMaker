@@ -100,52 +100,6 @@
                 </ListView.RenderTransform>
             </ListView>
 
-            <!--TODO Selecet+Remove button-->
-
-            <!--DO not forget to add a button to create NEW event and bind the command 
-                to it to navigate (Command instead of clic_event)-->
-
-            <!--summary starts here TODO: remove unnecessary buttons
-            
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="CreateEventButton" Margin="10,10,5,5">
-                    <interactivity:Interaction.Behaviors>
-                        <core:EventTriggerBehavior EventName="Click">
-                            <core:NavigateToPageAction TargetPage="Eventmaker.View.CreateEventPage"/>
-                        </core:EventTriggerBehavior>
-                    </interactivity:Interaction.Behaviors>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Name="NewEventIcon"
-                               Text="&#xE710;"
-                               FontFamily="Segoe MDL2 Assets"
-                               Margin="0,4,5,0"/>
-                        <TextBlock Text="Add"
-                               FontFamily="Segoe UI"/>
-                    </StackPanel>
-                </Button>
-                <Button x:Name="DeleteEventButton" Margin="0,10,5,5">
-                    <interactivity:Interaction.Behaviors>
-                        <core:EventTriggerBehavior EventName="Click">
-                            <core:InvokeCommandAction Command="{Binding DeleteEventCommand}"/>
-                        </core:EventTriggerBehavior>
-                    </interactivity:Interaction.Behaviors>
-
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Name="DeleteEventIcon"
-                               Text="&#xE711;"
-                               FontFamily="Segoe MDL2 Assets"
-                               Margin="0,4,5,0"/>
-                        <TextBlock Text="Delete"
-                               FontFamily="Segoe UI"/>
-
-                    </StackPanel>
-                </Button>
-            </StackPanel>
-        </StackPanel>
-        
-        summary ends here-->
-
-
         </StackPanel>
     </Grid>
 </Page>
